@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="estilos.css" type="text/css">
+	<script type="text/javascript" src="reloj.js"></script>
+	<title>Practico JavaScript</title>
+</head>
+
+<body onload="activar_reloj()">
+
+	<div id="contenedor">
+	<div id="izquierda" >
+	<p>Ingrese el valor del descanso:</p>
+		<input type="text" id="descanso" value="15">
+			
+		</input><br><br>
+		<p>Ingrese el valor del trabajo:</p>
+		<input type="text" id="trabajo" value="8">
+
+		</input><br><br>
+		<button class="iniciar" onclick="inicia_trabajo()">Iniciar Trabajo</button><br><br>
+		<br>
+		<br>
+		<button class="parar" onclick="limpia_timer()">Detener Trabajo</button>
+	</div>
+	<div id="derecha">
+	
+		<h2 id="titulo">Descanso</h2>
+		<h1 id="reloj">00</h1>
+	
+	</div>
+	</div>
+</body>
+
+</html> 

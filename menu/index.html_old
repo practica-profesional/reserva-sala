@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="menu3.css" />
+	<link rel="stylesheet" href="fonts/style.css">
+	<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> 
+	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+</head>
+
+<body onload="ocultar()">
+		<header>
+		<nav>
+			<ul>
+				<li onclick="mostrar()"><a href="../login/panel-control.php" target="contenido"><span class="inicio"><i class="icon icon-home"></i></span>Inicio</a></li>
+				<li id="users"><a href="../abm_usuario/mostrar.php" target="contenido"><span class="usuarios"><i class="icon icon-key"></i></span>ABM Usuarios</a>
+				</li>
+				<li id="Personas"><a href="../pruebas_menu_forms/tabla3.php" target="contenido"><span class="personas"><i class="icon icon-pacman"></i></span>ABM Personas</a></li>
+				<li id="Citas"><a href="#"><span class="citas"><i class="icon icon-pencil"></i></span>ABM Citas y Eventos</a>
+					<ul>
+						<li><a href="#">Citas</a></li>
+						<li><a href="#">Eventos</a></li>
+					</ul>
+
+				</li>
+				<li><a id="Salir" href="../login/logout.php" target="contenido"><span class="salir"><i class="icon icon-rocket"></i></span>Logout</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div id="global">
+		<iframe name="contenido" id="external" style="width:100%;height:100%;border: 0"><a href="../login/login.html"></iframe>
+	</div>
+
+<div id ="pie">
+		
+</div>
+</body>
+
+
+<script language="javascript"> 
+window.onload = function(){
+	ocultar();
+	mostrar();
+} 
+</script> 
+<script type="text/javascript">
+//$("#users").hide("slow");
+//document.getElementById('users').style.display = 'none';
+//document.getElementById('Salir').style.display = 'none';
+//document.getElementById('Personas').style.display = 'none';
+//document.getElementById('Citas').style.display = 'none';
+</script>
+<!--<script type="text/javascript">
+
+ $(document).ready(function(){ 
+   $("#Salir").on("click",function(){
+      $("#users").toggle("slow","linear");
+   });
+});
+</script>-->
+
+<script type="text/javascript">
+function mostrar(){
+	session_start();
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+		/*if($_SESSION['categoria'] <10){
+		document.getElementById('users').style.display = 'block';
+		}*/
+		document.getElementById('Salir').style.display = 'block';
+		document.getElementById('Personas').style.display = 'block';
+		document.getElementById('Citas').style.display = 'block';
+
+		}
+	}
+
+function ocultar(){
+document.getElementById('users').style.display = 'none';
+document.getElementById('Salir').style.display = 'none';
+document.getElementById('Personas').style.display = 'none';
+document.getElementById('Citas').style.display = 'none';
+}
+
+</script>
+</html>

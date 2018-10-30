@@ -1,0 +1,24 @@
+#izquierda{  
+        height:100%;  
+        background-color:#ffffff;  
+        float:left;  
+        width:20%;  
+}  
+#derecha{  
+        height:100%;  
+        background-color:#00ff00;  
+        /*float:right;*/  
+        width:80%;
+        text-align: center;  
+}  
+#contenedor{
+	height:500px;
+}
+#reloj{
+	font-size: 1000%;
+
+}
+#titulo{
+	font-size: 350%;
+	 padding-top: 100px;
+}

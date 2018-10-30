@@ -3,8 +3,7 @@
 	padding:0;
 }
 
-/*EN EL VIDEO HAY UN ERROR POR EL CUAL NO SE VISUALIZA EN GOOGLE CHROME,
-EL CÓDIGO A CONTINUACIÓN YA ESTA CORREGIDO*/
+
 
 header {
 	margin-top:10px;
@@ -126,7 +125,7 @@ nav ul li a .salir {
 }
 
 body {
- background-color: #FFDEC6;
+ background-color: #ffffff;
  margin: 0px auto;
 }
 #global {
@@ -142,18 +141,18 @@ body {
 #navegacion {
  width:780px;
  margin: 0 auto 0 auto;
- background-color: #B4CD00;
+ background-color: #fffff;
 }
 #principal {
  width:650px;
  margin: 0 auto 0 auto;
- background-color: #ffCD68;
+ background-color: #ffffff;
  float: left;
 }
 .presentacion{
 border-radius: 25px;
     border: 2px solid #73AD21;
-    padding: 10px; 
+    padding: 10px;
     width: 80%;
     height: auto;
     margin: 0px auto;

@@ -16,7 +16,7 @@ header {
 
 
 body {
- background-color: #FFDEC6;
+ background-color: #FFFFFF;
 }
 #global {
  width:90%; height:400px;
@@ -25,9 +25,9 @@ body {
  /*background-color: rgb(0,0,255); opacity: 0.5;*/
 }
 #cabecera {
- width:800px;
- margin: 0 auto 0 auto;
- background-color: #ff0068;
+ width:100%;
+ margin: 0 0 0 0;
+ background-color: #ff4848;
 
 }
 #navegacion {
@@ -45,11 +45,11 @@ body {
 #pie {
  width:800px;
  margin: 0 auto 0 auto;
- background-color: #B4C355;
+ background-color: #484848;
  float: left;
 }
 footer {
- background-color: #6E6Eff;
+ background-color: #484848;
 }
 
 form.login {
@@ -59,7 +59,7 @@ form.login {
     font-family: sans-serif;
     margin: 0 auto;
     padding: 20px;
-    width: 278px;
+    width: 30%;
     box-shadow:0px 0px 20px black;
     border-radius:10px;
 }
@@ -74,7 +74,8 @@ form.login div label {
 }
 form.login div input[type="text"], form.login div input[type="password"] {
     border: 1px solid #DCDCDC;
-    float: right;
+    float: left;
+		width: 80%;
     padding: 4px;
 }
 form.login div input[type="submit"] {

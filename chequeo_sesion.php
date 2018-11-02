@@ -9,5 +9,5 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
    //echo "<br><br><a href='index.html'>Registrarme</a>";
 
 exit;
-} 
+}
 ?>

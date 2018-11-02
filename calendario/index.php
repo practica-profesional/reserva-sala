@@ -116,8 +116,8 @@ body {
 
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <h4>Reserva de Salas</h4>
+    <div class="col-md-12 text-center">
+      <h2>Reserva de Salas</h2>
     </div>
   </div>
   <div class="row">

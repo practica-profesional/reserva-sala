@@ -26,6 +26,7 @@ body {
 		<script src='js/moment.min.js'></script>
 		<script src='js/fullcalendar.min.js'></script>
 		<script src='locale/es-es.js'></script>
+		<!-- <script src='locale/es.js'></script> -->
 		<script>
 			$(document).ready(function() {
 				$('#calendar').fullCalendar({
@@ -35,6 +36,8 @@ body {
 						right: 'month,agendaWeek,agendaDay'
 					},
 					defaultDate: Date(),
+					firstDay: 1,
+
 					navLinks: true, // can click day/week names to navigate views
 					editable: true,
 					eventLimit: true, // allow "more" link when too many events
@@ -82,9 +85,9 @@ body {
 				}
 
 				caracteres = '0123456789';
-				separacao1 = '/';
-				separacao2 = ' ';
-				separacao3 = ':';
+				separacion1 = '/';
+				separacion2 = ' ';
+				separacion3 = ':';
 				conjunto1 = 2;
 				conjunto2 = 5;
 				conjunto3 = 10;
@@ -92,15 +95,15 @@ body {
 				conjunto5 = 16;
 				if ((caracteres.search(String.fromCharCode (keypress))!=-1) && campo.value.length < (19)){
 					if (campo.value.length == conjunto1 )
-					campo.value = campo.value + separacao1;
+					campo.value = campo.value + separacion1;
 					else if (campo.value.length == conjunto2)
-					campo.value = campo.value + separacao1;
+					campo.value = campo.value + separacion1;
 					else if (campo.value.length == conjunto3)
-					campo.value = campo.value + separacao2;
+					campo.value = campo.value + separacion2;
 					else if (campo.value.length == conjunto4)
-					campo.value = campo.value + separacao3;
+					campo.value = campo.value + separacion3;
 					else if (campo.value.length == conjunto5)
-					campo.value = campo.value + separacao3;
+					campo.value = campo.value + separacion3;
 				}else{
 					event.returnValue = false;
 				}
@@ -114,7 +117,7 @@ body {
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h4>Reserva de Salas JQuery</h4>
+      <h4>Reserva de Salas</h4>
     </div>
   </div>
   <div class="row">
@@ -127,9 +130,9 @@ body {
 
 
 
-			<div class="page-header">
+			<!-- <div class="page-header">
 				<h1>Agenda</h1>
-			</div>
+			</div> -->
 			<?php
 			if(isset($_SESSION['mensaje'])){
 				echo $_SESSION['mensaje'];
@@ -140,11 +143,17 @@ body {
 			<div id='calendar'></div>
 		</div>
 
-		<div class="modal fade" id="visualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static">
+		<div  class="modal fade" id="visualizar"
+					tabindex="-1"
+					role="dialog"
+					aria-labelledby="exampleModalLabel"
+					data-backdrop="static">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 						<h4 class="modal-title text-center">Datos del Evento</h4>
 					</div>
 					<div class="modal-body">
@@ -163,11 +172,14 @@ body {
 			</div>
 		</div>
 
-		<div class="modal fade" id="cadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" data-backdrop="static">
+		<div class="modal fade" id="cadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+				 data-backdrop="static">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
 						<h4 class="modal-title text-center">Registrar Evento</h4>
 					</div>
 					<div class="modal-body">
@@ -183,7 +195,7 @@ body {
 								<div class="col-sm-10">
 									<select name="color" class="form-control" id="color">
 										<option value="">Selecione</option>
-										<option style="color:#FFD700;" value="#FFD700">Amarillo</option>
+										<option style="color:#FFD700;" value="#FFD700">Ventas(Amarillo)</option>
 										<option style="color:#0071c5;" value="#0071c5">Azul Turquesa</option>
 										<option style="color:#FF4500;" value="#FF4500">Naranja</option>
 										<option style="color:#8B4513;" value="#8B4513">Marron</option>
@@ -197,13 +209,13 @@ body {
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">Data Inicial</label>
+								<label for="inputEmail3" class="col-sm-2 control-label">Fecha Inicial</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="inicio" id="start" onKeyPress="DataHora(event, this)">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">Data Final</label>
+								<label for="inputEmail3" class="col-sm-2 control-label">Fecha Final</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="fin" id="end" onKeyPress="DataHora(event, this)">
 								</div>
@@ -229,7 +241,7 @@ body {
 </div>
 <div class="panel-footer">
   <div class="container">
-    <p>Códigos <a href="https://www.baulphp.com/" target="_blank">BaulPHP</a></p>
+
   </div>
 </div>
 

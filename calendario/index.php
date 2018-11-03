@@ -48,6 +48,16 @@ body {
 						$('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
 						$('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
 						$('#visualizar').modal('show');
+
+						var variableID = event.id;
+						var varConfirmacion = "NoCorfirmado";
+						//alert(variableID);
+
+						cmp = document.getElementById( "varID99" );
+						    cmp.value = variableID;
+						cmp2 = document.getElementById( "varConfirmacion" );
+						    cmp2.value = varConfirmacion;
+
 						return false;
 
 					},
@@ -75,7 +85,6 @@ body {
 					]
 				});
 			});
-
 			//Mascara para o campo data e hora
 			function DataHora(evento, objeto){
 				var keypress=(window.event)?event.keyCode:evento.which;
@@ -139,6 +148,9 @@ body {
 				unset($_SESSION['mensaje']);
 			}
 			?>
+			<?php
+			    $url='eliminar_evento.php';
+			?>
 
 			<div id='calendar'></div>
 		</div>
@@ -149,17 +161,25 @@ body {
 					aria-labelledby="exampleModalLabel"
 					data-backdrop="static">
 			<div class="modal-dialog" role="document">
-				<div class="modal-content">
+				<div class="modal-content" id="contenedor">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
+
+						<form class="form-horizontal" method="POST" action="<?php echo $url ?>">
+								<input type="hidden" id="varID99" name="varID99" value=""/>
+								<input type="hidden" id="varConfirmacion" name="varConfirmacion" value=""/>
+								<button type="submit" class="btn btn-danger" name="eliminar_evento">Eliminar</button>
+								<button type="button" class="btn close panelTitleTxt" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</form>
+
+
 						<h4 class="modal-title text-center">Datos del Evento</h4>
 					</div>
 					<div class="modal-body">
 						<dl class="dl-horizontal">
-							<dt>ID de Evento</dt>
-							<dd id="id"></dd>
+							<!-- <dt>ID de Evento</dt>
+							<dd id="id"></dd> -->
 							<dt>Titulo de Evento</dt>
 							<dd id="title"></dd>
 							<dt>Inicio de Evento</dt>

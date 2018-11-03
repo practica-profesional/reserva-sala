@@ -29,8 +29,8 @@ if(!empty($titulo) && !empty($color) && !empty($inicio) && !empty($fin)){
 
 	//Comprobar si guardó en la base de datos a través de "mysqli_insert_id" el cual comprueba si existe el ID del último dato insertado
 	if(mysqli_insert_id($conexion)){
-		$_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Evento registrado con éxito<button type='button'
-		class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";
+		/*$_SESSION['mensaje'] = "<div class='alert alert-success' role='alert'>Evento registrado con éxito<button type='button'
+		class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>"; */
 		header("Location: index.php");
 	}else{
 		$_SESSION['mensaje'] = "<div class='alert alert-danger' role='alert'>Error al registrar el evento<button

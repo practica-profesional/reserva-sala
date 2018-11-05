@@ -5,6 +5,7 @@ include_once("db.php");
 
 $consulta_eventos = "SELECT id, titulo, color, inicio, fin FROM mis_eventos";
 $resultado_eventos = mysqli_query($conexion, $consulta_eventos);
+
 ?>
 <!DOCTYPE html>
 <html lang="es-es">

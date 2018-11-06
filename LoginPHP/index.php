@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
+
 </head>
 <body>
 
@@ -40,13 +41,7 @@
 
 <div class="container">
 
-      <!--Componente principal de un mensaje de primario o llamado a la acción -->
-      <div class="jumbotron">
-        <h1>Navbar example</h1>
-
-      </div>
-
-    </div>
+</div>
 
 <script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.min.js"></script>

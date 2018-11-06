@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if(isset($_SESSION['usr_id'])) {
+/*if(isset($_SESSION['usr_id'])) {
 	header("Location: index.php");
 }
 
@@ -17,7 +17,7 @@ if (isset($_POST['signup'])) {
 	$password = mysqli_real_escape_string($con, $_POST['password']);
 	$cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
 	$terminosycond = mysqli_real_escape_string($con, $_POST['terminosycond']);
-	
+
 	//Nombre sólo puede contener caracteres alfabéticos y espacio (esto varia sgun requerimiento)
 	if (!preg_match("/^[a-zA-Z ]+$/",$name)) {
 		$error = true;
@@ -58,7 +58,7 @@ if (isset($_POST['signup'])) {
 			';
 		}
 	}
-}
+}*/
 ?>
 
 <!DOCTYPE html>
@@ -116,7 +116,7 @@ if (isset($_POST['signup'])) {
 						<input type="text" name="name" placeholder="Nombres Completos" required value="<?php if($error) echo $name; ?>" class="form-control" />
 						<span class="text-danger"><?php if (isset($name_error)) echo $name_error; ?></span>
 					</div>
-					
+
 					<div class="form-group">
 						<label for="name">Email</label>
 						<input type="email" name="email" placeholder="Correo Electrónico" required value="<?php if($error) echo $email; ?>" class="form-control" />
@@ -134,10 +134,10 @@ if (isset($_POST['signup'])) {
 						<input type="password" name="cpassword" placeholder="Confirmar Contraseña" required class="form-control" />
 						<span class="text-danger"><?php if (isset($cpassword_error)) echo $cpassword_error; ?></span>
 					</div>
-					
+
 					<div class="checkbox">
 					    <label>
-					      <input type="checkbox" name="terminosycond" id="terminosycond" required=""> Acepto todos los 
+					      <input type="checkbox" name="terminosycond" id="terminosycond" required=""> Acepto todos los
 					      <!-- Button trigger modal -->
 							<button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#TernimosCondiciones">
 							  Terminos y condiciones
@@ -157,7 +157,7 @@ if (isset($_POST['signup'])) {
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4 col-md-offset-4 text-center">	
+		<div class="col-md-4 col-md-offset-4 text-center">
 		Ya te registaste? <a href="login.php">Logeate Aqui</a>
 		</div>
 	</div>

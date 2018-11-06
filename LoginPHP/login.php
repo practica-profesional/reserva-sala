@@ -11,9 +11,9 @@ include_once '../conexion.php';
 //Comprobar de envío el formulario
 if (isset($_POST['login'])) {
 
-	$email = mysqli_real_escape_string($con, $_POST['email']);
-	$password = mysqli_real_escape_string($con, $_POST['password']);
-	$result = mysqli_query($con, "SELECT * FROM usuario WHERE email = '" . $email. "' and clave = '" . md5($password) . "'");
+	$email = mysqli_real_escape_string($conexion, $_POST['email']);
+	$password = mysqli_real_escape_string($conexion, $_POST['password']);
+	$result = mysqli_query($conexion, "SELECT * FROM usuario WHERE email = '" . $email. "' and clave = '" . md5($password) . "'");
 
 	if ($row = mysqli_fetch_array($result)) {
 		//$_SESSION['usr_estado'] = $row['estado'];
@@ -22,7 +22,7 @@ if (isset($_POST['login'])) {
 			$_SESSION['usr_id'] = $row['id_usuario'];
 			$_SESSION['usr_name'] = $row['nombre'];
 
-			header("Location: index.php");
+			header("Location: ../calendario/index.php");
 		}else
 		$errormsg = "Esta cuenta esta desactivada";
 	} else {

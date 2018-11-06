@@ -1,11 +1,12 @@
-CREATE DATABASE `db_modular`;
-USE `db_modular`;
+
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(8) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(45) NOT NULL,
+  `email` varchar(145) NOT NULL,
+  `clave` varchar(45) NOT NULL,
+  `create_time` timestamp,
+  `category_codigo` int(2),
   `estado` int(8),
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `email` (`email`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;

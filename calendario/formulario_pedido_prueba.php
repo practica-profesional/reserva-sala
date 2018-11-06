@@ -81,7 +81,7 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
 
 <div class="panel-group panel-border">
   <div class="panel panel-success">
-    <div class="panel-heading"><h4>Realizar una Reserva</h4></div>
+    <div class="panel-heading"><h5>Realizar una Reserva</h5></div>
       <div class="panel-body">
 
         <form class="form-horizontal" method="POST" action="pedido_evento_prueba.php">
@@ -101,7 +101,7 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
 
 
         <div class="text">
-          <label for="quien">Quien solicita la sala, por favor ingrese su email</label>
+          <label for="quien">Quien solicita la sala:</label>
           <input type="email" class="form-control" id="txtQuien" name="txtQuien" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           aria-describedby="emailHelp" placeholder="Ingrese su email" size="60">
         </div>

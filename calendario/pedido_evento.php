@@ -35,7 +35,7 @@ if (mail($para, $subject, $msjCorreo, $headers)) {
          </script>";
          $msg="no se envio el mensaje " . $varSalas ;
     }
-$msg="prueba de mensaje" . $varFin ;
+//$msg="prueba de mensaje" . $varFin ;
 
 $_SESSION['mensaje'] = "<div class='alert alert-danger' role='alert'>$msg<button
 type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button></div>";

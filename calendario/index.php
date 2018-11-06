@@ -123,12 +123,12 @@ body {
 	}
 	?>
 
-	<div class="col-md-3 ">
+	<div class="col-md-3">
 
 				<br>
 
 				<div class="pedidoContainer"></div>
-
+<!--<link href="template.html" rel="import" />-->
 	</div>
 
 	<div class="col-md-9">

@@ -44,7 +44,7 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
             var horaInicio = document.getElementById("horaInicio").value;
             var horaFin = document.getElementById("horaFin").value;
             var tipouso = document.getElementById("tipouso").value;
-
+            llenar_modal();
 
             var msg='la sala solicitada es: ' + salas;
             msg=msg + ' \nPara:   ' + cantpers + '   personas';

@@ -8,7 +8,8 @@ $varSalas=$_POST['text-dropdownMenuSalas'];
 $varQuien=$_POST['txtQuienEnviar'];
 $varCantPers=$_POST['text-cantpers'];
 $varInicio=$_POST['text-horaInicio'];
-$varFin=$_POST['text-horaFin'];
+$varFin=$_POST['horaFin'];
+//$varFin=$_POST['text-horaFin'];
 
 $varTipoUso=$_POST['text-tipouso'];
 $para="marcelo.fajardo@gmail.com, marce.quelocura@gmail.com";
@@ -24,7 +25,7 @@ $msjCorreo=$msjCorreo . "<br>\n con la finalidad: " . $varTipoUso;
       $headers .= "Content-type: text/html; charset=utf-8";
 
 //mail("marcelo.fajardo@gmail.com","Formulario recibido",$varSalas);
-if (mail($para, $subject, $msjCorreo, $headers)) {
+/*if (mail($para, $subject, $msjCorreo, $headers)) {
          echo "<script language='javascript'>
             alert('Mensaje enviado, muchas gracias.');
          </script>";
@@ -34,7 +35,7 @@ if (mail($para, $subject, $msjCorreo, $headers)) {
             alert('fallado');
          </script>";
          $msg="no se envio el mensaje " . $varSalas ;
-    }
+    }*/
 $msg="prueba de mensaje" . $varFin ;
 
 $_SESSION['mensaje'] = "<div class='alert alert-danger' role='alert'>$msg<button

@@ -46,8 +46,8 @@ body {
 		<script>
 
 			$(document).ready(function() {
-				$('.pedidoContainer').load('./formulario_pedido.php');
-				
+				$('.pedidoContainer').load('./formulario_pedido_prueba.php');
+
 
 				$('#calendar').fullCalendar({
 					header: {
@@ -124,24 +124,11 @@ body {
 	?>
 
 	<div class="col-md-3 ">
-				<p></p>
+
 				<br>
-		<h3>Realizar una Reserva</h3>
 
-		<div class="panel-group panel-border">
-		  <div class="panel panel-success">
-				<div class="panel-heading">Elija Sala</div>
-		    	<div class="panel-body">
+				<div class="pedidoContainer"></div>
 
-
-<div class="pedidoContainer"></div>
-
-
-
-					</div>
-		  </div>
-
-		</div>
 	</div>
 
 	<div class="col-md-9">

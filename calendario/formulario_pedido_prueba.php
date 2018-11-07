@@ -151,9 +151,10 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
         <div class="form-group">
               <label for="sel1">Tipo de uso:</label>
               <select class="form-control" id="tipouso" name="tipouso">
-                <option>Videconferencia</option>
-                <option>Meeting</option>
-                <option>Laboral</option>
+                <option>Videoconferencia</option>
+                <option>Reuniones</option>
+                <option>Capacitaciones</option>
+                <option>Otros</option>
               </select>
         </div>
 

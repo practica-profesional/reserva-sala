@@ -1,9 +1,9 @@
 <?php
-	include ('../login/control.php');
-	require('../conexion.php');
+	//include ('../login/control.php');
+	require('../../conexion.php');
 	session_start();
-	$categoria=$_SESSION['categoria'];
-	$username=$_SESSION['username'];
+	$categoria=$_SESSION['usr_cat'];
+	$username=$_SESSION['usr_name'];
 
 	if((isset($_POST['busqueda']) && $_POST['busqueda']<>'')or(isset($_POST['busquedaXcategoria']) && $_POST['busquedaXcategoria']<>'')){
 		$nom=$_POST['busqueda'];
@@ -31,12 +31,16 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Usuarios</title>
 	<!-- <link rel="stylesheet" type="text/css" href="../tablas.css" media="screen"> -->
-	<link rel="stylesheet" type="text/css" href="../bootstrap/sketchy/bootstrap.min.css">
 	</head>
 	<body>
 
-		<center><h1>Usuarios</h1></center>
 
+		<!-- meter el menu header.php -->
+
+			<?php
+			require_once('../LoginPHP/header.php');
+			?>
+		<center><h1>Usuarios</h1></center>
 		<div class="container float-none">
 
 		<!-- </div>
@@ -46,8 +50,7 @@
 						<input type="button" class="btn btn-primary"
 								onclick=" location.href='nuevo.php' "
 								value="Nuevo usuario" name="boton" />
-				</div>
-				<div class="form-group float-right">
+				
 						<p> Busqueda por nombre:
 						<input type="text" name="busqueda">
 						y/o categoria:

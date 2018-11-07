@@ -7,7 +7,7 @@ $clave="sistemas";
 
 $mysqli=new mysqli($server,$user,$clave,$bd);
 $conexion = mysqli_connect("localhost", "u410159394_reser", "sistemas", "u410159394_reser") or die("Error " . mysqli_error($con));
-
+//echo 'Conexion establecida';
 //$mysqli=new mysqli("127.0.0.1","sistema","sistema","sistema"); //servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
 
 	if(mysqli_connect_errno()){

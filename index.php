@@ -1,4 +1,4 @@
 <?php
 //header('Location: ./login/login.html');
-header('Location: ./calendario/index.php');
+header('Location: ./paginas/calendario/index.php');
 ?>

@@ -1,7 +1,11 @@
 <?php
 session_start();
 
-include_once("../conexion.php");
+if(!isset($_SESSION['usr_id'])) {
+	header("Location: ../LoginPHP/login.php");
+}
+
+include_once("../../conexion.php");
 
 $consulta_eventos = "SELECT id, titulo, color, inicio, fin FROM mis_eventos";
 $resultado_eventos = mysqli_query($conexion, $consulta_eventos);
@@ -16,6 +20,9 @@ $resultado_eventos = mysqli_query($conexion, $consulta_eventos);
 		<link href='css/fullcalendar.min.css' rel='stylesheet' />
 		<link href='css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
 		<link href='css/personalizado.css' rel='stylesheet' />
+			<!-- <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> -->
+				<script src="../../bootstrap/js/jquery-1.10.2.js"></script>
+
 <style type="text/css">
 body {
     margin: 0px 0px;
@@ -23,6 +30,7 @@ body {
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
 }
+
 </style>
 		<script src='js/jquery.min.js'></script>
 		<script src='js/bootstrap.min.js'></script>
@@ -131,33 +139,18 @@ body {
 			}
 		}
 		</script>
+
 </head>
 	<body>
-		<nav class="navbar navbar-default" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar1">
-						<span class="sr-only">Navegacion</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="index.php" style="font-family: 'Lobster', cursive;">Niza</a>
-				</div>
-				<div class="collapse navbar-collapse" id="navbar1">
-					<ul class="nav navbar-nav navbar-right">
-						<?php if (isset($_SESSION['usr_id'])) { ?>
-						<li><p class="navbar-text">Logeado como <i class="btn btn-danger btn-xs" ><b><?php echo $_SESSION['usr_name']; ?></b></i></p></li>
-						<li><a href="logout.php">Log Out</a></li>
-						<?php } else { ?>
-						<li><a href="login.php">Login</a></li>
 
-						<?php } ?>
-					</ul>
-				</div>
-			</div>
-		</nav>
 
+		<!-- meter el menu header.php -->
+
+			<?php
+			require_once('../LoginPHP/header.php');
+			?>
+
+			<!-- aqui termina el menu header.php -->
 
 <div class="container">
   <div class="row">

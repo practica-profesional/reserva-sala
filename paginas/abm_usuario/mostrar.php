@@ -41,16 +41,17 @@
 			require_once('../LoginPHP/header.php');
 			?>
 		<center><h1>Usuarios</h1></center>
-		<div class="container float-none">
+		<div class="container">
 
 		<!-- </div>
 		<div id="filtros" style="float: right;"> -->
-			<form class="form" action="mostrar.php" method="post">
-				<div class="form-group float-left">
+			<form class="form form-inline" role="form" action="mostrar.php" method="post">
+				<div class="form-group col-md-3">
 						<input type="button" class="btn btn-primary"
 								onclick=" location.href='nuevo.php' "
 								value="Nuevo usuario" name="boton" />
-				
+				</div>
+				<div class="form-group form-group-justified col-md-9">
 						<p> Busqueda por nombre:
 						<input type="text" name="busqueda">
 						y/o categoria:
@@ -83,13 +84,17 @@
 										<?php echo $row['categoria'];?>
 									</td>
 									<td>
-										<input type="button" class="btn btn-secondary" onclick=" location.href='modificar.php?id=<?php echo $row['id_usuario'];?>' " value="Modificar" name="botonM" />
+										<input type="button" class="btn btn-secondary"
+										onclick=" location.href='modificar.php?id=<?php echo $row['id_usuario'];?>' "
+										value="Modificar" name="botonM" />
 									</td>
 									<td>
 
 										<?php if ( $row['nombre'] != $username ){ ?>
 
-												 	<input type="button" class="btn btn-secondary" onclick=" location.href='pre_eliminar.php?id=<?php echo $row['id_usuario'];?>' " value="Eliminar" name="botonE" />
+												 	<input type="button" class="btn btn-secondary"
+													onclick=" location.href='pre_eliminar.php?id=<?php echo $row['id_usuario'];?>' "
+													value="Eliminar" name="botonE" />
 
 
 										<?php } ?>

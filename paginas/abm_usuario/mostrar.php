@@ -17,7 +17,7 @@
 	}
 	else{
 	$query="SELECT id_usuario, u.nombre as nombre, email, c.nombre as categoria FROM usuario u, category c
-			WHERE c.codigo = u.category_codigo";
+			WHERE c.codigo = u.category_codigo and u.category_codigo >= '$categoria'";
 	}
 	//echo $query;
 	$resultado=$mysqli->query($query);
@@ -40,9 +40,9 @@
 			<?php
 			require_once('../LoginPHP/header.php');
 			?>
-		<center><h1>Usuarios</h1></center>
-		<div class="container">
 
+		<div class="container">
+		<center><h1>Usuarios</h1></center>
 		<!-- </div>
 		<div id="filtros" style="float: right;"> -->
 			<form class="form form-inline" role="form" action="mostrar.php" method="post">

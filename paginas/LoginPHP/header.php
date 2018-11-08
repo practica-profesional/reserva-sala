@@ -7,7 +7,7 @@ session_start();
 <script src="../../bootstrap/js/311/bootstrap.min.js"></script>
 
 
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container-fluid">
 
 		<div class="navbar-header">
@@ -24,7 +24,7 @@ session_start();
 			<ul class="nav navbar-nav navbar-right">
 				<!-- definir menus para admines y para los que no  -->
 				<?php if (isset($_SESSION['usr_id'])) { if (($_SESSION['usr_cat'])<10) { ?>
-					<li><a href="../calendario/calendaZonasrio-admin.php">ABM Reservas</a></li>
+					<li><a href="../calendario/calendario-admin.php">ABM Reservas</a></li>
 					<li><a href="#">ABM Zonas</a></li>
 					<li><a href="../abm_usuario/mostrar.php">ABM Usuarios</a></li>
 					<li><a href="#">ABM Salas</a></li>
@@ -32,6 +32,7 @@ session_start();
 					<li><p class="navbar-text">Logeado como <i class="btn btn-danger btn-xs" ><b><?php echo $_SESSION['usr_name']; ?></b></i></p></li>
 					<li><a href="../LoginPHP/logout.php">Log Out admin</a></li>
 				<?php }else{ ?>
+					<li><a href="../abm_usuario/mostrar.php">ABM Usuarios</a></li>
 					<li><p class="navbar-text">Logeado como <i class="btn btn-danger btn-xs" ><b><?php echo $_SESSION['usr_name']; ?></b></i></p></li>
 					<li><a href="../LoginPHP/logout.php">Log Out</a></li>
 				<?php }}?>
@@ -41,3 +42,4 @@ session_start();
 		</div>
 	</div>
 </nav>
+<br><br>

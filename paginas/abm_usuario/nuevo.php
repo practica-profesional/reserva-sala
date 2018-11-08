@@ -60,7 +60,7 @@ $mysqli->close(); //cerramos la conexión
 					name="enviar" value="Registrar" /></center><br>
 
 
-			<center><input type="button" class="btn btn-secondary" type="button"
+			<center><input class="btn btn-secondary" type="button"
 				onclick=" location.href='mostrar.php' " value="Regresar" name="boton" /></center>
 
 

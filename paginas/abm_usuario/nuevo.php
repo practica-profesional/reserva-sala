@@ -32,6 +32,11 @@ $mysqli->close(); //cerramos la conexión
 			?>
 		<center><h1>Nuevo Usuario</h1></center>
 <div class="container">
+
+
+    <span class="clearfix"></span>
+    <div class="center-block">
+    <div class="col-md-6 col-md-offset-3">
 		<form name="nuevo_usuario" method="post" action="guarda_usuario.php">
 			<div class="table-hover table-responsive">
 			<table class="table table-striped" width="50%">
@@ -68,6 +73,8 @@ $mysqli->close(); //cerramos la conexión
 
 		</div>
 		</form>
+    </div>
+    </div>
 </div>
 	</body>
 </html>

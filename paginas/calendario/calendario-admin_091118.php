@@ -105,8 +105,6 @@ body {
 								start: '<?php echo $registros_eventos['inicio']; ?>',
 								end: '<?php echo $registros_eventos['fin']; ?>',
 								color: '<?php echo $registros_eventos['color']; ?>',
-								tipo_uso: '<?php echo $registros_eventos['tipo_uso']; ?>',
-								quien: '<?php echo $registros_eventos['quien']; ?>',
 								},<?php
 							}
 						?>
@@ -232,10 +230,6 @@ body {
 							<dd id="start"></dd>
 							<dt>Fin de Evento</dt>
 							<dd id="end"></dd>
-							<dt>Quien lo solicita</dt>
-							<dd id="end"></dd>
-							<dt>Que tipo de uso tendra</dt>
-							<dd id="end"></dd>
 						</dl>
 					</div>
 				</div>
@@ -258,18 +252,6 @@ body {
 								<label for="inputEmail3" class="col-sm-2 control-label">Titulo</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="titulo" placeholder="Titulo do Evento">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">Quien lo solicita</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" name="quien" placeholder="Introduzca el email del solicitante">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputEmail3" class="col-sm-2 control-label">Tipo uso</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" name="tipouso" placeholder="Para que se usará la sala">
 								</div>
 							</div>
 							<div class="form-group">

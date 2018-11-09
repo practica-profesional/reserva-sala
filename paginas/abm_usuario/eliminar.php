@@ -1,6 +1,6 @@
 <?php
 
-	require('../conexion.php');
+	require('../../conexion.php');
 
 	$id=$_GET['id'];
 
@@ -21,11 +21,11 @@
 				if($resultado>0){
 				?>
 
-				<h1>Usuario Eliminado</h1>
+				<h1>El usuario fue eliminado <?php $id ?> </h1>
 
 				<?php 	}else{ ?>
 
-				<h1>Error al Eliminar Usuario</h1>
+				<h1>Error al Eliminar Usuario <?php echo $query?></h1>
 
 			<?php	} ?>
 			<p></p>

@@ -59,7 +59,7 @@ body {
 					firstDay: 1,
 
 					navLinks: true, // can click day/week names to navigate views
-					editable: true,
+					editable: false,
 					eventLimit: true, // allow "more" link when too many events
 					eventClick: function(event) {
 
@@ -140,7 +140,7 @@ body {
 			<div class="col-md-2">
 				<br>
 				<input type="button" class="btn btn-default btn-success" name="verAdmin"
-				onclick="" value="Area de administracion"></input>
+				onclick="window.location.href='calendario-admin.php'" value="Area de administracion"></input>
 	    </div>
 	  </div>
 	  <div class="row">

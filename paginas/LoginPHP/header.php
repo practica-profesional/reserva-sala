@@ -32,6 +32,7 @@ session_start();
 					<li><p class="navbar-text">Logeado como <i class="btn btn-danger btn-xs" ><b><?php echo $_SESSION['usr_name']; ?></b></i></p></li>
 					<li><a href="../LoginPHP/logout.php">Log Out admin</a></li>
 				<?php }else{ ?>
+					<li><a href="../calendario/calendario-admin.php">ABM Reservas</a></li>
 					<li><a href="../abm_usuario/mostrar.php">ABM Usuarios</a></li>
 					<li><p class="navbar-text">Logeado como <i class="btn btn-danger btn-xs" ><b><?php echo $_SESSION['usr_name']; ?></b></i></p></li>
 					<li><a href="../LoginPHP/logout.php">Log Out</a></li>

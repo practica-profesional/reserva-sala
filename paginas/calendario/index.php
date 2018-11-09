@@ -133,8 +133,14 @@ body {
 
 	<div class="col-md-9">
 		<div class="row">
-	    <div class="col-md-12 text-center">
+	    <div class="col-md-10 text-center">
 	      <h2>Reserva de Salas</h2>
+
+	    </div>
+			<div class="col-md-2">
+				<br>
+				<input type="button" class="btn btn-default btn-success" name="verAdmin"
+				onclick="" value="Area de administracion"></input>
 	    </div>
 	  </div>
 	  <div class="row">

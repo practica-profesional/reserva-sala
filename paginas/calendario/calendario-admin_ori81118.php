@@ -51,11 +51,7 @@ body {
 
 					navLinks: true, // can click day/week names to navigate views
 					editable: true,
-					StartEditable: true,
-					StartEditable: true,
-					eventResizableFromStart: true,
 					eventLimit: true, // allow "more" link when too many events
-					defaultView: 'agendaDay',
 					eventClick: function(event) {
 
 						$('#visualizar #id').text(event.id);
@@ -82,19 +78,6 @@ body {
 						$('#cadastrar #end').val(moment(end).format('DD/MM/YYYY HH:mm:ss'));
 						$('#cadastrar').modal('show');
 					},
-					eventResize: function(event, delta, revertFunc) {
-
-				    //alert(event.title + "  " + event.id + " ahora termina: " + event.end.format() + "   " +event.start.format());
-
-						window.location.href = 'modificar_evento.php?t=' + event.title + '&id=' + event.id + '&fin=' +
-							event.end.format() + '&inicio=' + event.start.format();
-				  },
-					eventDrop: function(event, delta, revertFunc) {
-
-				    //alert(event.title + "  " + event.id + " ahora cambia el comienzo: " + event.end.format() + "   " +event.start.format());
-						window.location.href = 'modificar_evento.php?t=' + event.title + '&id=' + event.id + '&fin=' +
-							event.end.format() + '&inicio=' + event.start.format();
-				  },
 					events: [
 						<?php
 							while($registros_eventos = mysqli_fetch_array($resultado_eventos)){

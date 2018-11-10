@@ -17,6 +17,7 @@ $varCantPers=$_POST['cantpers'];
 $varInicio=$_POST['horaInicio'];
 $varFin=$_POST['horaFin'];
 $varTipoUso=$_POST['tipouso'];
+$varFechaActual=$_POST['fechaActual'];
 
 //$para="marcelo.fajardo@gmail.com, funesomar@gmail.com";
 $para="marce.quelocura@gmail.com";
@@ -25,6 +26,7 @@ $subject="Reserva de Salas";
 
 $msjCorreo="La persona: " . $varQuien;
 $msjCorreo= $msjCorreo . "<br>\n Ha reservado la sala: " . $varSalas . "<br>\n Para la cantidad de personas: " . $varCantPers;
+$msjCorreo=$msjCorreo . "<br>\n Para el día:   " . $varFechaActual;
 $msjCorreo=$msjCorreo . "<br>\n Hora de inicio: " . $varInicio;
 $msjCorreo=$msjCorreo . "<br>\n Hora de fin: " . $varFin;
 $msjCorreo=$msjCorreo . "<br>\n con la finalidad: " . $varTipoUso;

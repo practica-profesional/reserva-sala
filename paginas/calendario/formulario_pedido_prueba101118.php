@@ -28,18 +28,6 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
               }
           });
 
-
-            var fecha = new Date(); //Fecha actual
-            var mes = fecha.getMonth()+1; //obteniendo mes
-            var dia = fecha.getDate(); //obteniendo dia
-            var ano = fecha.getFullYear(); //obteniendo año
-            if(dia<10)
-              dia='0'+dia; //agrega cero si el menor de 10
-            if(mes<10)
-              mes='0'+mes //agrega cero si el menor de 10
-            document.getElementById('fechaActual').value=ano+"-"+mes+"-"+dia;
-
-
         });
 
 
@@ -57,11 +45,9 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
             var horaInicio = document.getElementById("horaInicio").value;
             var horaFin = document.getElementById("horaFin").value;
             var tipouso = document.getElementById("tipouso").value;
-            var fechaActual = document.getElementById("fechaActual").value;
             llenar_modal();
 
             var msg='la sala solicitada es: ' + salas;
-            msg=msg + ' \nPara el día:   ' + fechaActual;
             msg=msg + ' \nPara:   ' + cantpers + '   personas';
             msg=msg + ' \nHora de inicio:   ' + horaInicio + '    y   Hora de finalización:   ' + horaFin;
             msg=msg + ' \nPara ser usada para:   ' + tipouso;
@@ -94,17 +80,16 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
     </script>
 
 
-
 <div class="panel-group panel-border">
   <div class="panel panel-success">
     <div class="panel-heading"><h5>Realizar una Reserva</h5></div>
       <div class="panel-body">
 
-        <form class="form-inline" method="POST" action="pedido_evento_prueba.php">
+        <form class="form-horizontal" method="POST" action="pedido_evento_prueba.php">
 
 
         <div class="form-group">
-            <label for="salas">Salas por Zonas:</label>
+            <label for="sel1">Salas por Zonas:</label>
             <select class="form-control" id="salas" name="salas">
               <?php
                 while($registros_salas = mysqli_fetch_array($resultado_salas)){
@@ -114,18 +99,17 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
               ?>
             </select>
         </div>
-<p></p>
-        <div class="form-group">
-          <div class="input-xs">
-            <label for="txtQuien">Quien solicita la sala:</label>
-            <input type="email" class="form-control" id="txtQuien" name="txtQuien" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            aria-describedby="emailHelp" placeholder="Ingrese su email" size="60" style="width: 95%;">
-          </div>
+
+
+        <div class="text">
+          <label for="quien">Quien solicita la sala:</label>
+          <input type="email" class="form-control" id="txtQuien" name="txtQuien" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          aria-describedby="emailHelp" placeholder="Ingrese su email" size="60">
         </div>
 
         <p></p>
 
-        <div class="form-group mx-sm-3 mb-2">
+        <div class="form-group">
               <label for="cantpers">Cuántas personas?:</label>
               <select class="form-control" id="cantpers" name="cantpers" aria-describedby="cantpers">
                 <option>1 -5</option>
@@ -133,11 +117,11 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
                 <option>mas de 20</option>
               </select>
         </div>
-<p></p>
 
-        <div class="form-group ">
-              <label for="horaInicio">Hora de inicio:   </label>
-              <select class="form-control mb-2" id="horaInicio" name="horaInicio">
+
+        <div class="form-group row">
+              <label for="sel1">Hora de inicio:</label>
+              <select class="form-control" id="horaInicio" name="horaInicio">
                 <?php
                   for($i = 8 ;$i < 17; $i++){
 
@@ -148,9 +132,9 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
                 <option>17:00</option>
               </select>
         </div>
-<br><br>
+
         <div class="form-group">
-              <label for="horaFin">Hora de fin:     </label>
+              <label for="sel1">Hora de fin:</label>
               <select class="form-control" id="horaFin" name="horaFin">
                 <?php
                   for($i = 8 ;$i < 18; $i++){
@@ -163,10 +147,10 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
               </select>
         </div>
 
-<br><br>
+
 
         <div class="form-group">
-              <label for="tipouso">Tipo de uso:</label>
+              <label for="sel1">Tipo de uso:</label>
               <select class="form-control" id="tipouso" name="tipouso">
                 <option>Videoconferencia</option>
                 <option>Reuniones</option>
@@ -174,13 +158,8 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
                 <option>Otros</option>
               </select>
         </div>
-         <br><br>
 
-         <div class="form-group">
-             <label for="fechaActual">Seleccione un día:</label>
-              <input class="form-control" type="date" id="fechaActual" name="fechaActual" step="1" min="" max="2030-12-31" value="">
 
-        </div>
         <p></p>
 
 <!-- botones de envio pruebas varias -->

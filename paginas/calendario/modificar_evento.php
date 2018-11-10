@@ -8,6 +8,8 @@ $tit=$_GET['t'];
 $varID=$_GET['id'];
 $varInicio=$_GET['inicio'];
 $varFin=$_GET['fin'];
+//$varTpo_uso=$_GET['tipo_uso'];
+//$varQuien=$_GET['quien'];
 
 /*
 $consulta_eventos = "SELECT id, titulo, color, inicio, fin FROM mis_eventos where id = $varID";

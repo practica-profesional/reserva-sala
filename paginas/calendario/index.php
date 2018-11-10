@@ -1,7 +1,7 @@
 <?php
 session_start();
 include_once("db.php");
-$consulta_eventos = "SELECT id, titulo, color, inicio, fin FROM mis_eventos";
+$consulta_eventos = "SELECT id, titulo, color, inicio, fin, tipo_uso, quien FROM mis_eventos";
 $resultado_eventos = mysqli_query($conexion, $consulta_eventos);
 
 //$consulta_salas="SELECT * from salas";
@@ -67,6 +67,8 @@ body {
 						$('#visualizar #title').text(event.title);
 						$('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
 						$('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
+						$('#visualizar #tipo_uso').text(event.tipo_uso);
+						$('#visualizar #quien').text(event.quien);
 						$('#visualizar').modal('show');
 
 
@@ -87,6 +89,8 @@ body {
 								start: '<?php echo $registros_eventos['inicio']; ?>',
 								end: '<?php echo $registros_eventos['fin']; ?>',
 								color: '<?php echo $registros_eventos['color']; ?>',
+								tipo_uso: '<?php echo $registros_eventos['tipo_uso']; ?>',
+								quien: '<?php echo $registros_eventos['quien']; ?>',
 								},<?php
 							}
 						?>
@@ -172,12 +176,16 @@ body {
 											<dl class="dl-horizontal">
 												<!-- <dt>ID de Evento</dt>
 												<dd id="id"></dd> -->
-												<dt>Titulo de Evento</dt>
+												<dt>Sala solicitada</dt>
 												<dd id="title"></dd>
 												<dt>Inicio de Evento</dt>
 												<dd id="start"></dd>
 												<dt>Fin de Evento</dt>
 												<dd id="end"></dd>
+												<dt>Quien lo solicita</dt>
+												<dd id="quien"></dd>
+												<dt>Que tipo de uso tendra</dt>
+												<dd id="tipo_uso"></dd>
 											</dl>
 										</div>
 									</div>

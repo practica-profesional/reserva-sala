@@ -1,6 +1,7 @@
 <?php
 session_start();
-include_once("db.php");
+//include_once("db.php");
+include_once("../../conexion.php");
 $consulta_salas="SELECT * from salas";
 $resultado_salas=mysqli_query($conexion, $consulta_salas);
 ?>

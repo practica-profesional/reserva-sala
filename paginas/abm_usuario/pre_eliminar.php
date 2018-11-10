@@ -14,6 +14,8 @@
 <html>
 	<head>
 		<title>Eliminar usuario</title>
+		<link rel="stylesheet" href="../../bootstrap/css/311/bootstrap.min.css" type="text/css" />
+
 	</head>
 
 	<body>
@@ -22,7 +24,8 @@
 				if($resultado>0){
 				?>
 
-				<h1>Realmente desea eliminar el Usuario: </h1><?php $row=$resultado->fetch_assoc();echo $row['nombre'] . " " . $row['id_usuario'];?>
+				<h1>Realmente desea eliminar el Usuario: </h1><br>
+				<h3> <?php $row=$resultado->fetch_assoc();echo $row['nombre'] ?> </h3><br><br>
 
 				<?php 	}else{ ?>
 
@@ -31,8 +34,8 @@
 			<?php	} ?>
 			<p></p>
 
-			<input type="button" onclick=" location.href='mostrar.php' " value="Regresar" name="boton" />
-			<input type="button" onclick=" location.href='eliminar.php?id=<?php echo $row['id_usuario'];?>' " value="Eliminar" name="boton" />
+			<input type="button"class="btn btn-primary" onclick=" location.href='mostrar.php' " value="Regresar" name="boton" />
+			<input type="button"class="btn btn-primary" onclick=" location.href='eliminar.php?id=<?php echo $row['id_usuario'];?>' " value="Eliminar" name="boton" />
 		</center>
 	</body>
 </html>

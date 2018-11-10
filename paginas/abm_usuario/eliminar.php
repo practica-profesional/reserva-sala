@@ -13,6 +13,8 @@
 <html>
 	<head>
 		<title>Eliminar usuario</title>
+		<link rel="stylesheet" href="../../bootstrap/css/311/bootstrap.min.css" type="text/css" />
+		
 	</head>
 
 	<body>
@@ -30,7 +32,7 @@
 			<?php	} ?>
 			<p></p>
 
-			<input type="button" onclick=" location.href='mostrar.php' "
+			<input type="button" class="btn btn-primary" onclick=" location.href='mostrar.php' "
 			value="Regresar" name="boton" />
 
 		</center>

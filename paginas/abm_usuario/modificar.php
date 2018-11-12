@@ -7,7 +7,13 @@
 
 	$id=$_GET['id'];
 
-	$query="SELECT nombre, clave, email, category_codigo FROM usuario WHERE id_usuario='$id'";
+	//$query="SELECT nombre, clave, email, category_codigo FROM usuario WHERE id_usuario='$id'";
+
+	$query="SELECT usuario.nombre as nom, clave, email, category_codigo, category.nombre as cat FROM usuario
+
+	INNER JOIN category ON usuario.category_codigo=category.codigo
+
+	WHERE id_usuario='$id'";
 
 	$resultado=$mysqli->query($query);
 
@@ -42,11 +48,11 @@
 								<td width="30">
 								<?php if ( $row['nombre'] == $username ){ ?>
 
-									<input type="text" name="usuario" size="25" value="<?php echo $row['nombre']; ?>" disabled />
+									<input type="text" name="usuario" size="25" value="<?php echo $row['nom']; ?>" disabled />
 
 								<?php }else { ?>
 
-									<input type="text" name="usuario" size="25" value="<?php echo $row['nombre']; ?>" />
+									<input type="text" name="usuario" size="25" value="<?php echo $row['nom']; ?>" />
 
 								<?php } ?></td>
 							</tr>
@@ -66,7 +72,7 @@
 							</tr>
 							<tr>
 								<td><b>Categoria:</b></td>
-								<td><input type="text" name="categoria" size="25" value="<?php echo $row['category_codigo']; ?>" /></td>
+								<td><input type="text" readonly="readonly" disabled name="categoria" size="25" value="<?php echo $row['cat']; ?>" /></td>
 							</tr>
 
 						</table>

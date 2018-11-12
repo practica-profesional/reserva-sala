@@ -1,9 +1,11 @@
 <?php
+session_start();
 require('../../conexion.php');
 
-
-$sql="SELECT * from category";
-$resultado = $mysqli->query($sql); //usamos la conexion para dar un resultado a la variable
+$id_usuario=$_SESSION['usr_id'];
+$usuario_cat=$_SESSION['usr_cat'];
+$consulta_cat="SELECT * from category where codigo >= '" . $usuario_cat . "'";
+$resultado_cat=mysqli_query($conexion, $consulta_cat);
 
 if ($resultado->num_rows > 0) //si la variable tiene al menos 1 fila entonces seguimos con el codigo
 {
@@ -55,9 +57,18 @@ $mysqli->close(); //cerramos la conexión
 				<tr>
 					<td><b>Categoria</b></td>
 					<!--<td><input type="text" name="categoria" size="5" /></td>-->
-					<td><select calss="select" name="categoria" >
-       					<?php echo $combobit; ?>
-   					</select></td>
+					<td>
+            <select class="form-control" id="categoria" name="categoria" style="width: 95%;">
+                <?php
+                      while($registros_cat = mysqli_fetch_array($resultado_cat))
+                    {
+                        echo '<option value="'. $registros_cat['nombre'] .'">'.$registros_cat['nombre'].'</option>';
+                    }
+
+                $mysqli->close(); //cerramos la conexión
+                ?>
+   					</select>
+          </td>
 				</tr>
 			</table>
 

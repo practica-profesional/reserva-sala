@@ -109,7 +109,7 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
               <?php
                 while($registros_salas = mysqli_fetch_array($resultado_salas)){
 
-                  echo '<option>'.$registros_salas[nombre_sala].'</option>';
+                  echo '<option style="color:'.$registros_salas[color].'">'.$registros_salas[nombre_sala].'</option>';
                 }
               ?>
             </select>

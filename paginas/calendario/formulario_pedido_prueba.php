@@ -155,22 +155,24 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
               </select>
         </div>
 <br><br>
-        <div class="form-group">
-              <label for="horaFin">Hora de fin:     </label>
-              <select class="form-control" id="horaFin" name="horaFin">
-                <?php
-                  for($i = 8 ;$i < 18; $i++){
+        <div class="form-group form-group-justified">
+              <label  for="horaFin">Hora de fin:     </label>
 
-                    echo '<option>'.$i.":00".'</option>';
-                    echo '<option>'.$i.":30".'</option>';
-                  }
-                ?>
-                <option selected="selected">18:00</option>
-              </select>
+                <select class="form-control text-right"  id="horaFin" name="horaFin">
+                  <?php
+                    for($i = 8 ;$i < 18; $i++){
+
+                      echo '<option>'.$i.":00".'</option>';
+                      echo '<option>'.$i.":30".'</option>';
+                    }
+                  ?>
+                  <option selected="selected">18:00</option>
+                </select>
+
         </div>
 
 <br>
-
+<p></p>
         <div class="form-group">
               <label for="tipouso">Tipo de uso:</label>
               <select class="form-control" id="tipouso" name="tipouso" style="width: 95%;">

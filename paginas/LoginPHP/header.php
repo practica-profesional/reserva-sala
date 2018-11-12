@@ -37,7 +37,7 @@ session_start();
 					<li><p class="navbar-text">Logeado como <i class="btn btn-danger btn-xs" ><b><?php echo $_SESSION['usr_name']; ?></b></i></p></li>
 					<li><a href="../LoginPHP/logout.php">Log Out</a></li>
 				<?php }}else{?>
-					<li><a href="../calendario/index.php">Vista Normal</a></li>
+					<li><a href="../calendario/index.php">Calendario</a></li>
 				<?php }?>
 
 			</ul>

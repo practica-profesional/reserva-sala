@@ -9,7 +9,6 @@ include_once("../../conexion.php");
 
 $consulta_eventos = "SELECT id, titulo, color, inicio, fin, tipo_uso, quien FROM mis_eventos";
 $resultado_eventos = mysqli_query($conexion, $consulta_eventos);
-
 $consulta_salas="SELECT * from salas";
 $resultado_salas=mysqli_query($conexion, $consulta_salas);
 
@@ -297,22 +296,16 @@ select {
 								</div>
 							</div>
 							<div class="form-group">
-										<label for="tipouso" class="col-sm-2 control-label">Tipo de uso:</label>
+			              <label for="tipouso" class="col-sm-2 control-label">Tipo de uso:</label>
 										<div class="col-sm-10">
-											<select class="form-control" id="tipouso" name="tipouso">
-												<option>Videoconferencia</option>
-												<option>Reuniones</option>
-												<option>Capacitaciones</option>
-												<option>Otros</option>
-											</select>
+											<select class="form-control" id="tipouso" name="tipo_uso">
+				                <option>Videoconferencia</option>
+				                <option>Reuniones</option>
+				                <option>Capacitaciones</option>
+				                <option>Otros</option>
+				              </select>
 										</div>
-							</div>
-							<!--<div class="form-group">
-								<label for="tipouso" class="col-sm-2 control-label">Tipo uso</label>
-								<div class="col-sm-10">
-									<input type="text" class="form-control" name="tipo_uso" placeholder="Para que se usará la sala">
-								</div>
-							</div>-->
+			        </div>
 							<!--<div class="form-group">
 								<label for="color" class="col-sm-2 control-label">Color</label>
 								<div class="col-sm-10">

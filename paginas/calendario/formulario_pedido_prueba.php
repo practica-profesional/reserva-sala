@@ -105,7 +105,7 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
 
         <div class="form-group">
             <label for="salas">Salas por Zonas:</label>
-            <select class="form-control" id="salas" name="salas">
+            <select class="form-control" id="salas" name="salas" style="width: 95%;">
               <?php
                 while($registros_salas = mysqli_fetch_array($resultado_salas)){
 
@@ -127,17 +127,23 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
 
         <div class="form-group mx-sm-3 mb-2">
               <label for="cantpers">Cuántas personas?:</label>
-              <select class="form-control" id="cantpers" name="cantpers" aria-describedby="cantpers">
+              <select class="form-control" id="cantpers" name="cantpers" aria-describedby="cantpers" style="width: 95%;">
                 <option>1 -5</option>
                 <option>5 - 20</option>
                 <option>mas de 20</option>
               </select>
         </div>
 <p></p>
+        <div class="form-group">
+            <label for="fechaActual">Seleccione un día:</label>
+             <input class="form-control" type="date" id="fechaActual" name="fechaActual" style="width: 95%;"
+             step="1" min="" max="2030-12-31" value="">
 
+        </div>
+        <p></p>
         <div class="form-group ">
               <label for="horaInicio">Hora de inicio:   </label>
-              <select class="form-control mb-2" id="horaInicio" name="horaInicio">
+              <select class="form-control mb-2" id="horaInicio" name="horaInicio" >
                 <?php
                   for($i = 8 ;$i < 17; $i++){
 
@@ -163,24 +169,20 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
               </select>
         </div>
 
-<br><br>
+<br>
 
         <div class="form-group">
               <label for="tipouso">Tipo de uso:</label>
-              <select class="form-control" id="tipouso" name="tipouso">
+              <select class="form-control" id="tipouso" name="tipouso" style="width: 95%;">
                 <option>Videoconferencia</option>
                 <option>Reuniones</option>
                 <option>Capacitaciones</option>
                 <option>Otros</option>
               </select>
         </div>
-         <br><br>
+         <br>
 
-         <div class="form-group">
-             <label for="fechaActual">Seleccione un día:</label>
-              <input class="form-control" type="date" id="fechaActual" name="fechaActual" step="1" min="" max="2030-12-31" value="">
 
-        </div>
         <p></p>
 
 <!-- botones de envio pruebas varias -->

@@ -7,7 +7,7 @@ if(!isset($_SESSION['usr_id'])) {
 
 include_once("../../conexion.php");
 
-$consulta_eventos = "SELECT id, titulo, color, inicio, fin, tipo_uso, quien FROM mis_eventos";
+$consulta_eventos = "SELECT id, titulo, color, inicio, fin FROM mis_eventos";
 $resultado_eventos = mysqli_query($conexion, $consulta_eventos);
 
 $consulta_salas="SELECT * from salas";
@@ -33,10 +33,7 @@ body {
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
 }
-select {
-    height: 200px;
-    width: 300px;
-}
+
 </style>
 		<script src='js/jquery.min.js'></script>
 		<script src='js/bootstrap.min.js'></script>
@@ -68,8 +65,6 @@ select {
 						$('#visualizar #title').text(event.title);
 						$('#visualizar #start').text(event.start.format('DD/MM/YYYY HH:mm:ss'));
 						$('#visualizar #end').text(event.end.format('DD/MM/YYYY HH:mm:ss'));
-						$('#visualizar #tipo_uso').text(event.tipo_uso);
-						$('#visualizar #quien').text(event.quien);
 						$('#visualizar').modal('show');
 
 						var variableID = event.id;
@@ -95,13 +90,13 @@ select {
 				    //alert(event.title + "  " + event.id + " ahora termina: " + event.end.format() + "   " +event.start.format());
 
 						window.location.href = 'modificar_evento.php?t=' + event.title + '&id=' + event.id + '&fin=' +
-							event.end.format() + '&inicio=' + event.start.format() + '&tipo_uso=' + event.id + '&quien=' + event.id;
+							event.end.format() + '&inicio=' + event.start.format();
 				  },
 					eventDrop: function(event, delta, revertFunc) {
 
 				    //alert(event.title + "  " + event.id + " ahora cambia el comienzo: " + event.end.format() + "   " +event.start.format());
 						window.location.href = 'modificar_evento.php?t=' + event.title + '&id=' + event.id + '&fin=' +
-							event.end.format() + '&inicio=' + event.start.format() + '&tipo_uso=' + event.id + '&quien=' + event.id;
+							event.end.format() + '&inicio=' + event.start.format();
 				  },
 					events: [
 						<?php
@@ -164,14 +159,6 @@ select {
 			    //alert('Cancelo la eliminacion');
 			    return false;
 			}
-		};
-		function cambiacolor(color){
-			txtcolor = document.getElementById( "txtcolor" );
-			txtsala= document.getElementById( "txtsala" );
-
-					txtsala.value = document.getElementById( "salas" ).value;
-					txtcolor.value = color;
-
 		}
 		</script>
 
@@ -242,16 +229,16 @@ select {
 						<dl class="dl-horizontal">
 							<!-- <dt>ID de Evento</dt>
 							<dd id="id"></dd> -->
-							<dt>Sala solicitada</dt>
+							<dt>Titulo de Evento</dt>
 							<dd id="title"></dd>
 							<dt>Inicio de Evento</dt>
 							<dd id="start"></dd>
 							<dt>Fin de Evento</dt>
 							<dd id="end"></dd>
 							<dt>Quien lo solicita</dt>
-							<dd id="quien"></dd>
+							<dd id="end"></dd>
 							<dt>Que tipo de uso tendra</dt>
-							<dd id="tipo_uso"></dd>
+							<dd id="end"></dd>
 						</dl>
 					</div>
 				</div>
@@ -270,50 +257,49 @@ select {
 					</div>
 					<div class="modal-body">
 						<form class="form-horizontal" method="POST" action="proceso.php">
-
+							<!--<div class="form-group">
+								<label for="titulo" class="col-sm-2 control-label">Titulo</label>
+								<div class="col-sm-10">
+									<input type="text" class="form-control" name="titulo" placeholder="Titulo do Evento">
+								</div>
+							</div>-->
 							<div class="form-group">
 			            <label for="salas" class="col-sm-2 control-label">Salas por Zonas:</label>
 									<div class="col-sm-10">
-										<select class="form-control" id="salas" name="titulo"
-														onclick="cambiacolor(this.options[this.selectedIndex].dataset.color)">
-											<option value="" disabled selected>Seleccione una Sala</option>
+										<select class="form-control" id="titulo" name="titulo">
 				              <?php
 				                while($registros_salas = mysqli_fetch_array($resultado_salas)){
 
-				                  echo '<option style="color:'.$registros_salas[color].'" data-color= "'.$registros_salas[color].'">'.$registros_salas[nombre_sala].'</option>';
+				                  echo '<option>'.$registros_salas[nombre_sala].'</option>';
 				                }
 				              ?>
 				            </select>
 									</div>
 			        </div>
-
-							<input type="hidden" name="sala" id="txtsala" value="">
-							<input type="hidden" name="color" id="txtcolor" value="">
-
 							<div class="form-group">
-								<label for="inputEmail" class="col-sm-2 control-label">Quien lo solicita</label>
+								<label for="quien" class="col-sm-2 control-label">Quien lo solicita</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="quien" placeholder="Introduzca el email del solicitante">
 								</div>
 							</div>
 							<div class="form-group">
-										<label for="tipouso" class="col-sm-2 control-label">Tipo de uso:</label>
+			              <label for="tipouso" class="col-sm-2 control-label">Tipo de uso:</label>
 										<div class="col-sm-10">
 											<select class="form-control" id="tipouso" name="tipouso">
-												<option>Videoconferencia</option>
-												<option>Reuniones</option>
-												<option>Capacitaciones</option>
-												<option>Otros</option>
-											</select>
+				                <option>Videoconferencia</option>
+				                <option>Reuniones</option>
+				                <option>Capacitaciones</option>
+				                <option>Otros</option>
+				              </select>
 										</div>
-							</div>
+			        </div>
 							<!--<div class="form-group">
 								<label for="tipouso" class="col-sm-2 control-label">Tipo uso</label>
 								<div class="col-sm-10">
-									<input type="text" class="form-control" name="tipo_uso" placeholder="Para que se usará la sala">
+									<input type="text" class="form-control" name="tipouso" placeholder="Para que se usará la sala">
 								</div>
 							</div>-->
-							<!--<div class="form-group">
+							<div class="form-group">
 								<label for="color" class="col-sm-2 control-label">Color</label>
 								<div class="col-sm-10">
 									<select name="color" class="form-control" id="color">
@@ -330,15 +316,15 @@ select {
 										<option style="color:#8B0000;" value="#8B0000">Rojo</option>
 									</select>
 								</div>
-							</div>-->
+							</div>
 							<div class="form-group">
-								<label for="inicio" class="col-sm-2 control-label">Fecha Inicial</label>
+								<label for="inputEmail3" class="col-sm-2 control-label">Fecha Inicial</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="inicio" id="start" onKeyPress="DataHora(event, this)">
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="fin" class="col-sm-2 control-label">Fecha Final</label>
+								<label for="inputEmail3" class="col-sm-2 control-label">Fecha Final</label>
 								<div class="col-sm-10">
 									<input type="text" class="form-control" name="fin" id="end" onKeyPress="DataHora(event, this)">
 								</div>

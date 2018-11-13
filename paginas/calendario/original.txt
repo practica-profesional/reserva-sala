@@ -1,2 +1,0 @@
-este calendario fue tomado del ejemplo:
-fullcalendar-jQuery-PHP

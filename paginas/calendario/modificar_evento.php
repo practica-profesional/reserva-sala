@@ -2,7 +2,7 @@
 session_start();
 
 //Fichero de conexion con l base de datos
-include_once("db.php");
+include_once("../../conexion.php");
 
 $tit=$_GET['t'];
 $varID=$_GET['id'];

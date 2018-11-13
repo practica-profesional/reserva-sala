@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once("db.php");
+include_once("../../conexion.php");
 $consulta_eventos = "SELECT id, titulo, color, inicio, fin, tipo_uso, quien FROM mis_eventos";
 $resultado_eventos = mysqli_query($conexion, $consulta_eventos);
 
@@ -46,7 +46,7 @@ body {
 		<script>
 
 			$(document).ready(function() {
-				$('.pedidoContainer').load('./formulario_pedido_prueba.php');
+				$('.pedidoContainer').load('./formulario_pedido.php');
 
 
 				$('#calendar').fullCalendar({

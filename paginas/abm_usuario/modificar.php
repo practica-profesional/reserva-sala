@@ -72,7 +72,8 @@
 							</tr>
 							<tr>
 								<td><b>Categoria:</b></td>
-								<td><input type="text" readonly="readonly" disabled name="categoria" size="25" value="<?php echo $row['cat']; ?>" /></td>
+								<td><input type="text" readonly="readonly" disabled name="categoria_nombre" size="25" value="<?php echo $row['cat']; ?>" /></td>
+								<td><input type="hidden"  name="categoria" size="25" value="<?php echo $row['category_codigo']; ?>" /></td>
 							</tr>
 
 						</table>

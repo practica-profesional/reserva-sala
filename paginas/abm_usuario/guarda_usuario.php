@@ -8,6 +8,7 @@
 	$email=$_POST['email'];
 	$cat=$_POST['categoria'];
 
+echo $cat;
 
 	$query="INSERT INTO usuario (nombre, email, clave, category_codigo)
 						 VALUES ('$usuario','$email', '$password', '$cat')";

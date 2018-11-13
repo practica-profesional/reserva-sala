@@ -2,7 +2,7 @@
 session_start();
 
 //Fichero de conexion con l base de datos
-include_once("db.php");
+include_once("../../conexion.php");
 
 $varID=$_POST['varID99'];
 

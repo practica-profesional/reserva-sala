@@ -4,8 +4,6 @@ require('../../conexion.php');
 
 $id_usuario=$_SESSION['usr_id'];
 $usuario_cat=$_SESSION['usr_cat'];
-$consulta_cat="SELECT * from category where codigo >= '" . $usuario_cat . "'";
-$resultado_cat=mysqli_query($conexion, $consulta_cat);
 
 if ($resultado->num_rows > 0) //si la variable tiene al menos 1 fila entonces seguimos con el codigo
 {
@@ -60,9 +58,12 @@ $mysqli->close(); //cerramos la conexión
 					<td>
             <select class="form-control" id="categoria" name="categoria" style="width: 95%;">
                 <?php
+                  $consulta_cat="SELECT * from category where codigo >= '" . $usuario_cat . "'";
+                  $resultado_cat=mysqli_query($conexion, $consulta_cat);
+
                       while($registros_cat = mysqli_fetch_array($resultado_cat))
                     {
-                        echo '<option value="'. $registros_cat['nombre'] .'">'.$registros_cat['nombre'].'</option>';
+                        echo '<option value="'. $registros_cat['codigo'] .'">'.$registros_cat['nombre'].'</option>';
                     }
 
                 $mysqli->close(); //cerramos la conexión

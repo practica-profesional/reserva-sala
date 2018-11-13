@@ -51,7 +51,7 @@ if(!empty($titulo) && !empty($color) && !empty($inicio) && !empty($fin) && !empt
 session_start();
 
 //Fichero de conexion con l base de datos
-include_once("db.php");
+include_once("../../conexion.php");
 
 $titulo = filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING); //trae el nombre de la sala.
 //$sala = filter_input(INPUT_POST, 'sala', FILTER_SANITIZE_STRING); //trae el nombre de la sala.

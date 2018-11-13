@@ -28,8 +28,28 @@
 			<meta charset="utf-8">
 			<meta http-equiv="X-UA-Compatible" content="IE=edge">
 			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<link href='../../boostrap/css/bootstrap.min.css' rel='stylesheet'>
+				<script src="../../boostrap/js/bootstrap.min.js"></script>
+				<script src="../../bootstrap/js/jquery-1.10.2.js"></script>
+
 		<title>S a l a s</title>
-	<!-- <link rel="stylesheet" type="text/css" href="../tablas.css" media="screen"> -->
+
+				<script type="text/javascript">
+				
+				function Confirmation() {
+
+					if (confirm('Esta seguro de eliminar la sala?')==true) {
+							//alert('El registro ha sido eliminado correctamente!!!');
+							return true;
+					}else{
+							//alert('Cancelo la eliminacion');
+							return false;
+					}
+				};
+
+
+				</script>
+
 	</head>
 	<body>
 
@@ -95,14 +115,17 @@
 									</td>
 									<td>
 
-										<?php if ( $row['nombre'] != $username ){ ?>
-
-												 	<input type="button" class="btn btn-secondary"
-													onclick=" location.href='pre_eliminar.php?id=<?php echo $row['id_sala'];?>' "
-													value="Eliminar" name="botonE" />
 
 
-										<?php } ?>
+												 	<!--<input type="button" class="btn btn-secondary"
+													onclick="return  mostrar_modal()"
+													value="Eliminar" name="botonE" />-->
+													<button type="button" class="btn btn-secondary"
+													data-toggle="modal" data-target="#visualizar">
+														Eliminar
+													</button>
+
+
 
 									</td>
 								</tr>
@@ -111,6 +134,39 @@
 				</table>
 			</div>
 		</div>
+
+		<div  class="modal fade" id="visualizar"
+					tabindex="-1"
+					role="dialog"
+					aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" id="contenedor">
+					<div class="modal-header">
+
+						<form class="form-horizontal" method="POST" action="">
+							<h4 class="modal-title text-center ustify-content-end">
+								<input type="hidden" id="varID99" name="varID99" value=""/>
+								<button type="submit" class="btn btn-danger pull-left" name="eliminar_sala" onclick="return Confirmation()">Eliminar</button>
+								<button type="button" class="btn close panelTitleTxt" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							Datos de la sala</h4>
+						</form>
+
+
+						<!-- <h4 class="modal-title text-center">Datos del Evento</h4> -->
+					</div>
+					<div class="modal-body">
+						<dl class="dl-horizontal">
+
+						</dl>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</body>
-	<script src="../boostrap/js/bootstrap.min.js"></script>
+
 </html>

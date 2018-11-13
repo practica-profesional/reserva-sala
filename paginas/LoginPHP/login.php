@@ -39,7 +39,7 @@ if (isset($_POST['login'])) {
 <head>
 	<title>Inicio de session</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" >
-	<link rel="stylesheet" href="../../bootstrap/css/311/bootstrap311.min.css" type="text/css" />
+	<link rel="stylesheet" href="../../bootstrap/css/311/bootstrap.min.css" type="text/css" />
 
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
@@ -85,7 +85,7 @@ if (isset($_POST['login'])) {
 
 </div>
 
-<script src="js/jquery-1.10.2.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="../../bootstrap/js/jquery-1.10.2.js"></script>
+<script src="../../bootstrap/js/311/bootstrap.min.js"></script>
 </body>
 </html>

@@ -35,7 +35,7 @@
 		<title>S a l a s</title>
 
 				<script type="text/javascript">
-				
+
 				function Confirmation() {
 
 					if (confirm('Esta seguro de eliminar la sala?')==true) {
@@ -46,7 +46,13 @@
 							return false;
 					}
 				};
-
+					function llenarSala(id,nombre){
+						document.getElementById('txtsala').value=id;
+						document.getElementById('idsala').value=id;
+						document.getElementById('txtnombresala').value=nombre;
+						document.getElementById('idsala_mod').value=id;
+						document.getElementById('txtnombresala_mod').value=nombre;
+					}
 
 				</script>
 
@@ -109,24 +115,18 @@
 										<?php echo $row['hora_fin'];?>
 									</td>
 									<td>
-										<input type="button" class="btn btn-secondary"
-										onclick=" location.href='modificar.php?id=<?php echo $row['id_sala'];?>' "
-										value="Modificar" name="botonM" />
+											<button type="button" class="btn btn-secondary"
+											data-toggle="modal" data-target="#modificar"
+											onclick="return llenarSala(<?php echo $row['id_sala'];?>,'<?php echo $row['nombre_sala'];?>')">
+												Modificar
+											</button>
 									</td>
 									<td>
-
-
-
-												 	<!--<input type="button" class="btn btn-secondary"
-													onclick="return  mostrar_modal()"
-													value="Eliminar" name="botonE" />-->
-													<button type="button" class="btn btn-secondary"
-													data-toggle="modal" data-target="#visualizar">
-														Eliminar
-													</button>
-
-
-
+											<button type="button" class="btn btn-secondary"
+											data-toggle="modal" data-target="#eliminar"
+											onclick="return llenarSala(<?php echo $row['id_sala'];?>,'<?php echo $row['nombre_sala'];?>')">
+												Eliminar
+											</button>
 									</td>
 								</tr>
 							<?php } ?>
@@ -135,7 +135,7 @@
 			</div>
 		</div>
 
-		<div  class="modal fade" id="visualizar"
+		<div  class="modal fade" id="eliminar"
 					tabindex="-1"
 					role="dialog"
 					aria-labelledby="exampleModalLabel"
@@ -144,10 +144,11 @@
 				<div class="modal-content" id="contenedor">
 					<div class="modal-header">
 
-						<form class="form-horizontal" method="POST" action="">
+						<form class="form-horizontal" method="POST" action="eliminar_sala.php">
 							<h4 class="modal-title text-center ustify-content-end">
-								<input type="hidden" id="varID99" name="varID99" value=""/>
-								<button type="submit" class="btn btn-danger pull-left" name="eliminar_sala" onclick="return Confirmation()">Eliminar</button>
+								<input type="hidden"  name="idsala" id="idsala" value="">
+								<button type="submit" class="btn btn-danger pull-left" name="eliminar_sala"
+								onclick="return Confirmation()">Eliminar</button>
 								<button type="button" class="btn close panelTitleTxt" data-dismiss="modal" aria-label="Close">
 								<span aria-hidden="true">&times;</span>
 								</button>
@@ -158,14 +159,44 @@
 						<!-- <h4 class="modal-title text-center">Datos del Evento</h4> -->
 					</div>
 					<div class="modal-body">
-						<dl class="dl-horizontal">
-
-						</dl>
+						<input type="text" disabled name="txtsala" id="txtsala" value="">
+						<input type="text" disabled name="txtnombresala" id="txtnombresala" value="">
 					</div>
 				</div>
 			</div>
 		</div>
 
+
+		<div  class="modal fade" id="modificar"
+					tabindex="-1"
+					role="dialog"
+					aria-labelledby="exampleModalLabel"
+					aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" id="contenedor_mod">
+					<div class="modal-header">
+
+						<form class="form-horizontal" method="POST" action="modificar_sala.php">
+							<h4 class="modal-title text-center ustify-content-end">
+								<input type="hidden"  name="idsala_mod" id="idsala_mod" value="">
+								<button type="submit" class="btn btn-success pull-left" name="modificar_sala"
+								onclick="return Confirmation()">Modificar</button>
+								<button type="button" class="btn close panelTitleTxt" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+								</button>
+							Datos de la sala</h4>
+
+
+
+						<!-- <h4 class="modal-title text-center">Datos del Evento</h4> -->
+					</div>
+					<div class="modal-body">
+						<input type="text"  name="txtnombresala" id="txtnombresala_mod" value="">
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 	</body>
 

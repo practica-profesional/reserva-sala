@@ -10,4 +10,6 @@
 
   </script>';
 
+
+header('Location: mostrar_sala.php');
  ?>

@@ -1,3 +1,25 @@
+<?php
+
+if(isset($_POST['busqueda']) && $_POST['busqueda']<>''){
+  $nom=$_POST['busqueda'];
+
+    $query="SELECT id_sala, nombre_sala, cant_max_pers, hora_inicio, hora_fin,
+    salas.id_zona as id_z, creacion, color, nombre
+    FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona where nombre_sala like '$nom%'";
+//echo $query;
+}
+else{
+  $query="SELECT id_sala, nombre_sala, cant_max_pers, hora_inicio, hora_fin,
+  salas.id_zona as id_z, creacion, color, nombre
+  FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona";
+}
+//echo $query;
+$resultado=$mysqli->query($query);
+
+
+
+ ?>
+
 <div class="container">
 <center><h1>S a l a s</h1></center>
 <!-- </div>

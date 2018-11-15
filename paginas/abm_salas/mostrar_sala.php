@@ -5,21 +5,26 @@
 	$categoria=$_SESSION['usr_cat'];
 	$username=$_SESSION['usr_name'];
 
-	if(isset($_POST['busqueda']) && $_POST['busqueda']<>''){
-		$nom=$_POST['busqueda'];
+		if (isset($_POST['eliminar_sala'])){
+			$id_sala=$_POST['idsala'];
 
-			$query="SELECT id_sala, nombre_sala, cant_max_pers, hora_inicio, hora_fin,
-			salas.id_zona as id_z, creacion, color, nombre
-			FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona where nombre_sala like '$nom%'";
-	//echo $query;
-	}
-	else{
-		$query="SELECT id_sala, nombre_sala, cant_max_pers, hora_inicio, hora_fin,
-		salas.id_zona as id_z, creacion, color, nombre
-		FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona";
-	}
-	//echo $query;
-	$resultado=$mysqli->query($query);
+//						$query="DELETE FROM salas WHERE id_sala='$id_sala'";
+						$query="DELETE FROM salas WHERE id_sala='5'";
+						$resultado=$mysqli->query($query);
+
+						if($resultado>0){
+							}else{ echo "<script>var variable=' . $id_sala . ';
+							alert('No se puedo eliminar la sala: ' + variable);</script>";	}
+
+
+
+		}elseif(isset($_POST['modificar_sala'])){
+			echo "<script>alert('modificar sala jajajaaa');</script>";
+
+		}else{
+			//echo "<script>alert('listar salas');</script>";
+
+		}
 
 ?>
 
@@ -71,68 +76,14 @@
 			?>
 
 
-		<div  class="modal fade" id="eliminar"
-					tabindex="-1"
-					role="dialog"
-					aria-labelledby="exampleModalLabel"
-					aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content" id="contenedor">
-					<div class="modal-header">
-
-						<form class="form-horizontal" method="POST" action="eliminar_sala.php">
-							<h4 class="modal-title text-center ustify-content-end">
-								<input type="hidden"  name="idsala" id="idsala" value="">
-								<button type="submit" class="btn btn-danger pull-left" name="eliminar_sala"
-								onclick="return Confirmation()">Eliminar</button>
-								<button type="button" class="btn close panelTitleTxt" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-								</button>
-							Datos de la sala</h4>
-						</form>
 
 
-						<!-- <h4 class="modal-title text-center">Datos del Evento</h4> -->
-					</div>
-					<div class="modal-body">
-						<input type="text" disabled name="txtsala" id="txtsala" value="">
-						<input type="text" disabled name="txtnombresala" id="txtnombresala" value="">
-					</div>
-				</div>
-			</div>
-		</div>
+		<?php
+		require_once('eliminar_sala.php');
 
+		require_once('modificar_sala.php');
+		?>
 
-		<div  class="modal fade" id="modificar"
-					tabindex="-1"
-					role="dialog"
-					aria-labelledby="exampleModalLabel"
-					aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content" id="contenedor_mod">
-					<div class="modal-header">
-
-						<form class="form-horizontal" method="POST" action="modificar_sala.php">
-							<h4 class="modal-title text-center ustify-content-end">
-								<input type="hidden"  name="idsala_mod" id="idsala_mod" value="">
-								<button type="submit" class="btn btn-success pull-left" name="modificar_sala"
-								onclick="return Confirmation()">Modificar</button>
-								<button type="button" class="btn close panelTitleTxt" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-								</button>
-							Datos de la sala</h4>
-
-
-
-						<!-- <h4 class="modal-title text-center">Datos del Evento</h4> -->
-					</div>
-					<div class="modal-body">
-						<input type="text"  name="txtnombresala" id="txtnombresala_mod" value="">
-					</div>
-					</form>
-				</div>
-			</div>
-		</div>
 
 	</body>
 

@@ -1,15 +1,31 @@
-<?php
+<div  class="modal fade" id="eliminar"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" id="contenedor">
+      <div class="modal-header">
+
+        <form class="form-horizontal" method="POST" action=""> <!--eliminar_sala.php-->
+          <h4 class="modal-title text-center ustify-content-end">
+            <input type="hidden"  name="idsala" id="idsala" value="">
+            <button type="submit" class="btn btn-danger pull-left" name="eliminar_sala"
+            onclick="return Confirmation()">Eliminar</button>
+            <button type="button" class="btn close panelTitleTxt" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          Datos de la sala</h4>
+        </form>
 
 
-  $id_sala=$_POST['idsala'];
+        <!-- <h4 class="modal-title text-center">Datos del Evento</h4> -->
+      </div>
+      <div class="modal-body">
+        <input type="text" disabled name="txtsala" id="txtsala" value=""><br>
+        <input type="text" disabled name="txtnombresala" id="txtnombresala" value=""><br>
 
-  //echo $id_sala;
-  echo '<script>
-
-  var variable=' . $id_sala . '; alert(variable);
-
-  </script>';
-
-
-header('Location: mostrar_sala.php');
- ?>
+      </div>
+    </div>
+  </div>
+</div>

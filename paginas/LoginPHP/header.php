@@ -25,7 +25,7 @@ session_start();
 				<!-- definir menus para admines y para los que no  -->
 				<?php if (isset($_SESSION['usr_id'])) { if (($_SESSION['usr_cat'])<10) { ?>
 					<li><a href="../calendario/calendario-admin.php">ABM Reservas</a></li>
-					<li><a href="#">ABM Zonas</a></li>
+					<li><a href="../abm_zonas/mostrar_zona.php">ABM Zonas</a></li>
 					<li><a href="../abm_usuario/mostrar.php">ABM Usuarios</a></li>
 					<li><a href="../abm_salas/mostrar_sala.php">ABM Salas</a></li>
 					<li><a href="#">   </a></li>

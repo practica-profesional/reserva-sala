@@ -6,7 +6,7 @@ if(isset($_POST['busqueda']) && $_POST['busqueda']<>''){
     $query="SELECT id_sala, nombre_sala, cant_max_pers, hora_inicio, hora_fin,
     salas.id_zona as id_z, creacion, nombre_zona, colores.codigo_color, colores.nombre_color
     FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona
-    INNER JOIN colores ON salas.id_color=colores.id_color 
+    INNER JOIN colores ON salas.id_color=colores.id_color
     where nombre_sala like '$nom%'";
 //echo $query;
 }
@@ -65,7 +65,7 @@ $resultado_lista=$mysqli->query($query);
               <td>
                 <?php echo $row['nombre_zona'];?>
               </td>
-              <td>
+              <td style="color:<?php echo $row['codigo_color'];?>">
                 <?php echo $row['nombre_color'];?>
               </td>
               <td>

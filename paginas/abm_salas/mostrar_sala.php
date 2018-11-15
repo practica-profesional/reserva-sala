@@ -8,8 +8,7 @@
 		if (isset($_POST['eliminar_sala'])){
 			$id_sala=$_POST['idsala'];
 
-//						$query="DELETE FROM salas WHERE id_sala='$id_sala'";
-						$query="DELETE FROM salas WHERE id_sala='5'";
+						$query="DELETE FROM salas WHERE id_sala='$id_sala'";
 						$resultado=$mysqli->query($query);
 
 						if($resultado>0){
@@ -18,14 +17,32 @@
 
 
 
+		}elseif(isset($_POST['nueva_sala'])){
+
+			$color=$_POST['zona_sala'];
+			$cant_pers_sala=$_POST['txtcantesala_new'];
+			$hora_inicio_sala=$_POST['txtinisala_new'];
+			$hora_fin_sala=$_POST['txtfinsala_new'];
+			$nombre_sala=$_POST['txtnombresala_new'];
+			$zona_sala=$_POST['zona_sala'];
+
+			$query_nsala="INSERT INTO salas 	";
+			$query_nsala=$query_nsala . "(nombre_sala, cant_max_pers, hora_inicio, hora_fin, id_zona, id_color)";
+			$query_nsala=$query_nsala . " VALUES ('" . $nombre_sala . "', $cant_pers_sala, '" .$hora_inicio_sala. "', '" .$hora_fin_sala. "', $zona_sala, $color)";
+			$resultado=$mysqli->query($query_nsala);
+
+			if($resultado>0){
+				}else{ echo "<script>var variable=' . $id_sala . ';
+				alert('No se pudo crear la sala: ' + variable);</script>";	}
+			//echo "<script>var variable=' . $query_nsala . ';alert('nueva sala xdxdxdxd =  ' + variable );</script>";
+
+
 		}elseif(isset($_POST['modificar_sala'])){
 			echo "<script>alert('modificar sala jajajaaa');</script>";
 
 		}else{
 			//echo "<script>alert('listar salas');</script>";
-
 		}
-
 ?>
 
 <html>
@@ -82,6 +99,8 @@
 		require_once('eliminar_sala.php');
 
 		require_once('modificar_sala.php');
+
+		require_once('nueva_sala.php');
 		?>
 
 

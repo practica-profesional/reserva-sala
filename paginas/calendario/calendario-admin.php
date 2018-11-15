@@ -9,7 +9,7 @@ include_once("../../conexion.php");
 
 $consulta_eventos = "SELECT id, titulo, color, inicio, fin, tipo_uso, quien FROM mis_eventos";
 $resultado_eventos = mysqli_query($conexion, $consulta_eventos);
-$consulta_salas="SELECT * from salas";
+$consulta_salas="SELECT * from salas INNER JOIN colores on salas.id_color=colores.id_color";
 $resultado_salas=mysqli_query($conexion, $consulta_salas);
 
 ?>
@@ -279,7 +279,7 @@ select {
 				              <?php
 				                while($registros_salas = mysqli_fetch_array($resultado_salas)){
 
-				                  echo '<option style="color:'.$registros_salas[color].'" data-color= "'.$registros_salas[color].'">'.$registros_salas[nombre_sala].'</option>';
+				                  echo '<option style="color:'.$registros_salas[codigo_color].'" data-color= "'.$registros_salas[codigo_color].'">'.$registros_salas[nombre_sala].'</option>';
 				                }
 				              ?>
 				            </select>
@@ -321,6 +321,7 @@ select {
 										<option style="color:#40E0D0;" value="#40E0D0">Turquesa</option>
 										<option style="color:#228B22;" value="#228B22">Verde</option>
 										<option style="color:#8B0000;" value="#8B0000">Rojo</option>
+
 									</select>
 								</div>
 							</div>-->

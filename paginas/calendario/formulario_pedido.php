@@ -2,7 +2,7 @@
 session_start();
 //include_once("db.php");
 include_once("../../conexion.php");
-$consulta_salas="SELECT * from salas";
+$consulta_salas="SELECT * from salas INNER JOIN colores on salas.id_color=colores.id_color";
 $resultado_salas=mysqli_query($conexion, $consulta_salas);
 ?>
     <script>
@@ -109,7 +109,7 @@ $resultado_salas=mysqli_query($conexion, $consulta_salas);
               <?php
                 while($registros_salas = mysqli_fetch_array($resultado_salas)){
 
-                  echo '<option style="color:'.$registros_salas[color].'">'.$registros_salas[nombre_sala].'</option>';
+                  echo '<option style="color:'.$registros_salas[codigo_color].'">'.$registros_salas[nombre_sala].'</option>';
                 }
               ?>
             </select>

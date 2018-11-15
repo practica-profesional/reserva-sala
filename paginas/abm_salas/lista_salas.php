@@ -4,18 +4,20 @@ if(isset($_POST['busqueda']) && $_POST['busqueda']<>''){
   $nom=$_POST['busqueda'];
 
     $query="SELECT id_sala, nombre_sala, cant_max_pers, hora_inicio, hora_fin,
-    salas.id_zona as id_z, creacion, color, nombre
-    FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona where nombre_sala like '$nom%'";
+    salas.id_zona as id_z, creacion, nombre_zona, colores.codigo_color, colores.nombre_color
+    FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona
+    INNER JOIN colores ON salas.id_color=colores.id_color 
+    where nombre_sala like '$nom%'";
 //echo $query;
 }
 else{
   $query="SELECT id_sala, nombre_sala, cant_max_pers, hora_inicio, hora_fin,
-  salas.id_zona as id_z, creacion, color, nombre
-  FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona";
+  salas.id_zona as id_z, creacion, nombre_zona, colores.codigo_color, colores.nombre_color
+  FROM salas INNER JOIN zonas ON salas.id_zona=zonas.id_zona
+  INNER JOIN colores ON salas.id_color=colores.id_color";
 }
 //echo $query;
-$resultado=$mysqli->query($query);
-
+$resultado_lista=$mysqli->query($query);
 
 
  ?>
@@ -26,14 +28,18 @@ $resultado=$mysqli->query($query);
 <div id="filtros" style="float: right;"> -->
   <form class="form form-inline" role="form" action="" method="post">
     <div class="form-group col-md-3">
-        <input type="button" class="btn btn-primary"
+        <!--<button type="submit" class="btn btn-primary"
             onclick=" location.href='' "
-            value="Nueva sala" name="boton" />
+            value="Nueva sala" name="nueva_sala" /></button>-->
+            <button type="button" class="btn btn-primary"
+            data-toggle="modal" data-target="#nueva_sala">
+              Nueva sala
+            </button>
     </div>
     <div class="form-group form-group-justified col-md-9">
         <p> Busqueda por nombre de sala:
         <input type="text" name="busqueda">
-        <button type="submit" class="btn btn-primary">Filtrar</button></p>
+        <button type="submit" class="btn btn-primary" name="busqueda_sala">Filtrar</button></p>
     </div>
   </form>
 </div>
@@ -52,15 +58,15 @@ $resultado=$mysqli->query($query);
           <th><b></b></th>
         </tr>
         <tbody>
-          <?php while($row=$resultado->fetch_assoc()){ ?>
+          <?php while($row=$resultado_lista->fetch_assoc()){ ?>
             <tr>
               <td><?php echo $row['nombre_sala'];?>
               </td>
               <td>
-                <?php echo $row['nombre'];?>
+                <?php echo $row['nombre_zona'];?>
               </td>
               <td>
-                <?php echo $row['color'];?>
+                <?php echo $row['nombre_color'];?>
               </td>
               <td>
                 <?php echo $row['hora_inicio'];?>

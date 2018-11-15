@@ -77,7 +77,7 @@ $resultado_lista=$mysqli->query($query);
               <td>
                   <button type="button" class="btn btn-secondary"
                   data-toggle="modal" data-target="#modificar"
-                  onclick="return llenarSala(<?php echo $row['id_sala'];?>,'<?php echo $row['nombre_sala'];?>')">
+                  onclick="return llenarSala(<?php echo $row['id_sala'];?>,'<?php echo $row['nombre_sala'];?>', '<?php echo $row['hora_inicio'];?>', '<?php echo $row['hora_fin'];?>')">
                     Modificar
                   </button>
               </td>

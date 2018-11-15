@@ -19,7 +19,7 @@
 
 		}elseif(isset($_POST['nueva_sala'])){
 
-			$color=$_POST['zona_sala'];
+			$color=$_POST['color_sala'];
 			$cant_pers_sala=$_POST['txtcantesala_new'];
 			$hora_inicio_sala=$_POST['txtinisala_new'];
 			$hora_fin_sala=$_POST['txtfinsala_new'];
@@ -38,7 +38,19 @@
 
 
 		}elseif(isset($_POST['modificar_sala'])){
-			echo "<script>alert('modificar sala jajajaaa');</script>";
+
+			$hora_inicio_sala=$_POST['txtinisala_mod'];
+			$hora_fin_sala=$_POST['txtfinsala_mod'];
+			$nombre_sala=$_POST['txtnombresala_mod'];
+			$id_sala=$_POST['idsala_mod'];
+
+			$query="UPDATE salas SET nombre_sala='$nombre_sala', hora_inicio='$hora_inicio_sala', hora_fin='$hora_fin_sala'
+					WHERE id_sala='$id_sala'";
+
+			$resultado_mod=$mysqli->query($query);
+
+
+			//echo "<script>alert('modificar sala jajajaaa');</script>";
 
 		}else{
 			//echo "<script>alert('listar salas');</script>";
@@ -68,12 +80,25 @@
 							return false;
 					}
 				};
-					function llenarSala(id,nombre){
-						document.getElementById('txtsala').value=id;
+				function ConfirmationMod() {
+
+					if (confirm('Esta seguro que desea modificar la sala?')==true) {
+							//alert('El registro ha sido eliminado correctamente!!!');
+							return true;
+					}else{
+							//alert('Cancelo la eliminacion');
+							return false;
+					}
+				};
+					function llenarSala(id,nombre, hora_ini, hora_fin){
+
 						document.getElementById('idsala').value=id;
 						document.getElementById('txtnombresala').value=nombre;
 						document.getElementById('idsala_mod').value=id;
 						document.getElementById('txtnombresala_mod').value=nombre;
+						document.getElementById('txtinisala_mod').value=hora_ini;
+						document.getElementById('txtfinsala_mod').value=hora_fin;
+
 					}
 
 				</script>

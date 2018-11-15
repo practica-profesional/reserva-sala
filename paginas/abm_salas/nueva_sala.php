@@ -39,7 +39,7 @@ $resultado_zona=$mysqli->query($query);
            <?php
              while($registros_color = mysqli_fetch_array($resultado_color)){
 
-               echo '<option style="color:'.$registros_color[codigo_color].'">'.$registros_color[nombre_color].'</option>';
+               echo '<option value='.$registros_color[id_color].' style="color:'.$registros_color[codigo_color].'">'.$registros_color[nombre_color].'</option>';
              }
            ?>
          </select><p></p>

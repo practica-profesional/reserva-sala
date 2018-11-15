@@ -22,8 +22,9 @@
         <!-- <h4 class="modal-title text-center">Datos del Evento</h4> -->
       </div>
       <div class="modal-body">
-        <input type="text" disabled name="txtsala" id="txtsala" value=""><br>
-        <input type="text" disabled name="txtnombresala" id="txtnombresala" value=""><br>
+        <p>La sala a eliminar es:</p>
+        <br>
+        <input type="text" class="form-control" disabled name="txtnombresala" id="txtnombresala" value=""><br>
 
       </div>
     </div>

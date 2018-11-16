@@ -21,11 +21,12 @@
 
 
 			$nombre_zona=$_POST['txtnombrezona_new'];
+			$descripcion_zona=$_POST['txtdescrzona_new'];
 
 
 			$query_nzona="INSERT INTO zonas 	";
 			$query_nzona=$query_nzona . "(nombre_zona, descripcion)";
-			$query_nzona=$query_nzona . " VALUES ('" . $nombre_zona . "','" . $descripcion . "')";
+			$query_nzona=$query_nzona . " VALUES ('" . $nombre_zona . "','" . $descripcion_zona . "')";
 			$resultado=$mysqli->query($query_nzona);
 
 			if($resultado>0){
@@ -39,9 +40,10 @@
 
 			$nombre_zona=$_POST['txtnombrezona_mod'];
 			$id_zona=$_POST['idzona_mod'];
+			$descripcion_zona=$_POST['txtdescrzona_mod'];
 
-			$query="UPDATE zonas SET nombre_zona='$nombre_zona', descripcion='$descripcion_zona',
-					WHERE id_zona='$id_zona'";
+			$query="UPDATE zonas SET nombre_zona='$nombre_zona', descripcion='$descripcion_zona'
+					WHERE id_zona=$id_zona";
 
 			$resultado_mod=$mysqli->query($query);
 
@@ -86,14 +88,14 @@
 							return false;
 					}
 				};
-					function llenarzona(id,nombre, hora_ini, hora_fin){
+					function llenarzona(id,nombre,descripcion){
 
 						document.getElementById('idzona').value=id;
 						document.getElementById('txtnombrezona').value=nombre;
+
 						document.getElementById('idzona_mod').value=id;
 						document.getElementById('txtnombrezona_mod').value=nombre;
-						document.getElementById('txtinizona_mod').value=hora_ini;
-						document.getElementById('txtfinzona_mod').value=hora_fin;
+						document.getElementById('txtdescrzona_mod').value=descripcion;
 
 					}
 

@@ -33,7 +33,7 @@ $resultado_lista=$mysqli->query($query);
     </div>
     <div class="form-group form-group-justified col-md-9">
         <p> Busqueda por nombre de zona:
-        <input type="text" name="busqueda">
+        <input type="text" class="form-control" name="busqueda">
         <button type="submit" class="btn btn-primary" name="busqueda_zona">Filtrar</button></p>
     </div>
   </form>
@@ -63,15 +63,15 @@ $resultado_lista=$mysqli->query($query);
               </td>
               <td>
                   <button type="button" class="btn btn-secondary"
-                  data-toggle="modal" data-target="#modificar"
-                  onclick="return llenarSala(<?php echo $row['id_zona'];?>,'<?php echo $row['nombre_zona'];?>', '<?php echo $row['descripcion'];?>')">
+                  data-toggle="modal" data-target="#modificar_zona"
+                  onclick="return llenarzona(<?php echo $row['id_zona'];?>,'<?php echo $row['nombre_zona'];?>', '<?php echo $row['descripcion'];?>')">
                     Modificar
                   </button>
               </td>
               <td>
                   <button type="button" class="btn btn-secondary"
                   data-toggle="modal" data-target="#eliminar"
-                  onclick="return llenarSala(<?php echo $row['id_zona'];?>,'<?php echo $row['nombre_zona'];?>')">
+                  onclick="return llenarzona(<?php echo $row['id_zona'];?>,'<?php echo $row['nombre_zona'];?>')">
                     Eliminar
                   </button>
               </td>

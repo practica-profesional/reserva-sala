@@ -3,7 +3,7 @@
 ?>
 
 
-<div  class="modal fade" id="modificar"
+<div  class="modal fade" id="modificar_zona"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
@@ -24,11 +24,11 @@
 
       </div>
       <div class="modal-body" class="form-inline">
+        <label for="txtnombrezona_mod">Nombre de la zona:</label>
         <input type="text"  class="form-control" name="txtnombrezona_mod" id="txtnombrezona_mod" value=""  required><br>
-        <label for="txtinizona_mod" class="col-md-4">Hora de inicio: </label>
-        <input type="time" class="form-control" style="width: 50%;" id="txtinizona_mod" name="txtinizona_mod" min="08:00" max="18:00" required ><br>
-        <label for="txtinizona_mod" class="col-md-4">Hora de fin: </label>
-        <input type="time" class="form-control" style="width: 50%;" id="txtfinzona_mod" name="txtfinzona_mod" min="08:00" max="18:00" required >
+        <label for="txtdescrzona_mod">Descripcion de la zona:</label>
+        <input type="text"  class="form-control" name="txtdescrzona_mod" id="txtdescrzona_mod" value=""  required><br>
+
       </div>
       </form>
     </div>

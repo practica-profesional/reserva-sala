@@ -29,8 +29,10 @@ $resultado_zona=$mysqli->query($query);
 
        </div>
        <div class="modal-body">
-         <label for="nombre_zona">Nombre de Nueva zona:</label>
-         <input type="text"  name="txtnombrezona_new" id="txtnombrezona_new" value="" style="width: 95%;" required><p></p>
+         <label for="txtnombrezona_new">Nombre de Nueva zona:</label>
+         <input type="text" class="form-control" name="txtnombrezona_new" id="txtnombrezona_new" value="" style="width: 95%;" required><p></p>
+         <label for="txtdescrezona_new">Descripcion de Nueva zona:</label>
+         <input type="text" class="form-control" name="txtdescrzona_new" id="txtdescrezona_new" value="" style="width: 95%;" required><p></p>
 
          <p></p>
        </div>

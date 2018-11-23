@@ -7,7 +7,7 @@
 $query="SELECT * FROM colores";
 $resultado_color=$mysqli->query($query);
 
-$query="SELECT * FROM zonas";
+$query="SELECT * FROM zonas where id_zona = '1'";
 $resultado_zona=$mysqli->query($query);
 
  ?>
